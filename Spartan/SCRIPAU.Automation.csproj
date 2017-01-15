@@ -75,11 +75,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\Spartan.Core.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="SpecRun.SpecFlowPlugin, Version=1.5.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\SpecRun.SpecFlow.1.5.2\lib\net45\SpecRun.SpecFlowPlugin.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -1044,9 +1039,7 @@
     <Content Include="Assemblies\Spartan.Core.WinForms.pdb" />
     <Content Include="Assemblies\Spartan.Core.WinForms.XML" />
     <Content Include="Assemblies\Spartan.Core.xml" />
-    <Content Include="Assemblies\SpecRun.SpecFlowPlugin.dll" />
     <Content Include="Assemblies\TechTalk.SpecFlow.dll" />
-    <Content Include="Assemblies\TechTalk.SpecRun.dll" />
     <Content Include="Assemblies\ThoughtWorks.Selenium.Core.dll" />
     <Content Include="Assemblies\WebDriver.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
