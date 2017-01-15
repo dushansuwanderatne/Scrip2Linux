@@ -1,0 +1,343 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Spartan.Core.WinForms</name>
+    </assembly>
+    <members>
+        <member name="T:Spartan.Core.WinForms.WinFormsDriver">
+            <summary>
+            The Static Winforms application class
+            this class controls the operation of winforms
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.Open">
+            <summary>
+            Launch WinForms application and make visible
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.Connect(System.String,System.String,System.String)">
+            <summary>
+            Connect to WinForms
+            </summary>
+            <param name="node"></param>
+            <param name="username"></param>
+            <param name="password"></param>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.GetWinformsSlot">
+            <summary>
+            Get Winforms Slot
+            </summary>
+            <param name="WinformsSlot"></param>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.Disconnect">
+            <summary>
+            Disconnect from WinForms
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.Close">
+            <summary>
+            Close WinForms
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.Transmit">
+            <summary>
+            Envokes the transmit command in winforms AKA F10
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.PressEnter">
+            <summary>
+            Envokes the ENTER command in winforms
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.PressTAB">
+            <summary>
+            Enovkes the TAB command in winforms
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.PressESC">
+            <summary>
+            Enovkes the ESC command in winforms
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.WaitUntilReady">
+            <summary>
+            Waits untils WinForms is ready Or it hits the timeout.
+            Default timeout value is 20
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.WaitUntilReady(System.Int32)">
+            <summary>
+            Waits untils WinForms is ready Or it hits the timeout.
+            Timeout value is specified in timeOutInSeconds
+            </summary>
+            <param name="timeOutInSeconds"></param>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.HandleError">
+            <summary>
+            Attempts to handle a WinForms modal error dialog
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.CheckForError">
+            <summary>
+            Searches for an error modal box and errors if found
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.CheckForError(System.String)">
+            <summary>
+            Searches for a modal box containing the provided error text.
+            Returns a boolean on whether it found it
+            </summary>
+            <param name="errorText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.CheckForError(System.String,System.TimeSpan)">
+            <summary>
+            Searches for a modal box containing the provided error text.
+            Returns a boolean on whether it found it
+            </summary>
+            <param name="errorText"></param>
+            <param name="timeOut"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.MonitorForError(System.TimeSpan)">
+            <summary>
+            Monitors for errors in a separate thread just before interacting with a field
+            If an error is found it saves it in ErrorText and dismisses the error
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.CheckError(System.String)">
+            <summary>
+            Searches for a modal box containing the provided error.
+            Returns a boolean on whether it found it
+            </summary>
+            <param name="errorText"></param>
+            <returns></returns>      
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.CopyText">
+            <summary>
+            Envokes Copy text from windows
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.HardWait(System.Int32)">
+            <summary>
+            Hard Wait for Backend Jobs
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.GetWindowTitle(System.IntPtr)">
+            <summary>
+            Get the title text of a Window
+            </summary>
+            <param name="hWnd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.GetFormName">
+            <summary>
+            Get the form name
+            </summary>
+            <param name="hWnd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.SendMessage(System.IntPtr,System.UInt32,System.Int32,System.Text.StringBuilder)">
+            <summary>
+            Sends a message to a window
+            </summary>
+            <param name="hWnd"></param>
+            <param name="Msg"></param>
+            <param name="wParam"></param>
+            <param name="lParam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.SendMessage(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Sends a message to window
+            </summary>
+            <param name="hWnd"></param>
+            <param name="Msg"></param>
+            <param name="wparam"></param>
+            <param name="lparam"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.FindWindow(System.String,System.String)">
+            <summary>
+            Finds a window and returns its IntPtr
+            </summary>
+            <param name="lpClassName"></param>
+            <param name="lpWindowName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsDriver.SetForegroundWindow(System.IntPtr)">
+            <summary>
+            Sets window to foreground
+            </summary>
+            <param name="hWnd"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Spartan.Core.WinForms.WinFormsObjects.WinFormsField">
+            <summary>
+            WinForms Field Object
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsField.#ctor(System.String,System.String)">
+            <summary>
+            WinFormsField Constructor
+            </summary>
+            <param name="fieldId"></param>
+            <param name="fieldName"></param>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsField.#ctor(System.String,System.String,System.String)">
+            <summary>
+            WinFormsField Constructor
+            </summary>
+            <param name="fieldId"></param>
+            <param name="fieldText"></param>
+            <param name="fieldName"></param>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsField.#ctor(System.Int16,System.Int16,System.String,System.String,System.Int16,System.Int16,System.Int16,System.String,System.String)">
+            <summary>
+            WinFormsField Constructor
+            </summary>
+            <param name="fromLine"></param>
+            <param name="toLine"></param>
+            <param name="fieldType"></param>
+            <param name="mode"></param>
+            <param name="length"></param>
+            <param name="maxOccurs"></param>
+            <param name="occurs"></param>
+            <param name="fieldText"></param>
+            <param name="fieldName"></param>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsField.#ctor(System.Int16,System.Int16,System.String,System.String,System.Int16,System.Int16,System.Int16,System.String)">
+            <summary>
+            WinFormsField Constructor
+            </summary>
+            <param name="fromLine"></param>
+            <param name="toLine"></param>
+            <param name="fieldType"></param>
+            <param name="mode"></param>
+            <param name="length"></param>
+            <param name="maxOccurs"></param>
+            <param name="occurs"></param>
+            <param name="fieldName"></param>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsField.SetValue(System.String)">
+            <summary>
+            Set value of field
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsField.SetSpecial(System.String)">
+            <summary>
+            Set value of a field using a macro
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsField.SetValue(System.Int32,System.String)">
+            <summary>
+            Set value of field
+            </summary>
+            <param name="index"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsField.GetValue">
+            <summary>
+            Get and return value of field
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsField.GetValue(System.Int32)">
+            <summary>
+            Get and return value of field based on index
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsField.GetIndex(System.String)">
+            <summary>
+            Loops through field array and returns the 1st index of the specified value
+            </summary>
+            <param name="expected"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsField.Exists">
+            <summary>
+            Returns if field exists
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsField.ValidateExists">
+            <summary>
+            Checks if field exists, fails test if returns false
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsField.ValidateFieldValue">
+            <summary>
+            Validate field value (Uses value stored in page object FieldText)
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsField.ValidateFieldValue(System.String)">
+            <summary>
+            Validate field value
+            </summary>
+            <param name="expectedValue"></param>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsField.ValidateFieldValue(System.Int32,System.String)">
+            <summary>
+            Validate Field Value
+            </summary>
+            <param name="index"></param>
+            <param name="expectedValue"></param>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsField.ValidateFieldValueContains(System.Int32,System.String)">
+            <summary>
+            Validate field value contains
+            </summary>
+            <param name="index"></param>
+            <param name="expectedValue"></param>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsField.ValidateFieldValueContains(System.String)">
+            <summary>
+            Validate field value contains
+            </summary>
+            <param name="expectedValue"></param>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsField.ClickField">
+            <summary>
+            Click on the field
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsField.ClickField(System.Int32)">
+            <summary>
+            Click on the specified index of the field
+            </summary>
+        </member>
+        <member name="T:Spartan.Core.WinForms.WinFormsObjects.WinFormsForm">
+            <summary>
+            WinForms Form Object
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsForm.#ctor(System.String,System.String)">
+            <summary>
+            WinFormsForm Constructor
+            </summary>
+            <param name="formId"></param>
+            <param name="formName"></param>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsForm.GetFormName">
+            <summary>
+            Gets and returns the name of the current form
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsForm.ValidateFormName">
+            <summary>
+            Validates the name of the current form is the same as the object's
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.WinForms.WinFormsObjects.WinFormsForm.Exists">
+            <summary>
+            Returns whether form exists on screen
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,147 @@
+using System;
+using TechTalk.SpecFlow;
+using Spartan.Core.WinForms.WinFormsObjects;
+using Spartan.Core.WinForms;
+using Spartan.Core;
+
+namespace SCRIPAU.Automation.Screens
+{
+    [Binding]
+    public class SEYT0103
+
+    {
+		//Form Object
+		public static WinFormsForm FormName = new WinFormsForm("SEYT0103", "FormName");
+		//Fields
+
+
+        public static WinFormsField SelectGrp = new WinFormsField("SELECT-GRP", "SelectGrp");
+        public static WinFormsField FinYear = new WinFormsField("FIN-YEAR", "FinYear");
+        public static WinFormsField ReportDesc1 = new WinFormsField("REPORT-DESC1", "ReportDesc1");
+        public static WinFormsField Rn1 = new WinFormsField("RN1", "Rn1");
+        public static WinFormsField Acc1 = new WinFormsField("ACC1", "Acc1");
+        public static WinFormsField Typ1 = new WinFormsField("TYP1", "Typ1");
+        public static WinFormsField Date1 = new WinFormsField("DATE1", "Date1");
+        public static WinFormsField Aiir1 = new WinFormsField("AIIR1", "Aiir1");
+        public static WinFormsField Code1 = new WinFormsField("CODE1", "Code1");
+        public static WinFormsField Bld1 = new WinFormsField("BLD1", "Bld1");
+        public static WinFormsField Brkdn1 = new WinFormsField("BRKDN1", "Brkdn1");
+        public static WinFormsField Rn2 = new WinFormsField("RN2", "Rn2");
+        public static WinFormsField Acc2 = new WinFormsField("ACC2", "Acc2");
+        public static WinFormsField Typ2 = new WinFormsField("TYP2", "Typ2");
+        public static WinFormsField Date2 = new WinFormsField("DATE2", "Date2");
+        public static WinFormsField Aiir2 = new WinFormsField("AIIR2", "Aiir2");
+        public static WinFormsField Code2 = new WinFormsField("CODE2", "Code2");
+        public static WinFormsField Bld2 = new WinFormsField("BLD2", "Bld2");
+        public static WinFormsField Brkdn2 = new WinFormsField("BRKDN2", "Brkdn2");
+        public static WinFormsField Rn3 = new WinFormsField("RN3", "Rn3");
+        public static WinFormsField Acc3 = new WinFormsField("ACC3", "Acc3");
+        public static WinFormsField Typ3 = new WinFormsField("TYP3", "Typ3");
+        public static WinFormsField Date3 = new WinFormsField("DATE3", "Date3");
+        public static WinFormsField Aiir3 = new WinFormsField("AIIR3", "Aiir3");
+        public static WinFormsField Code3 = new WinFormsField("CODE3", "Code3");
+        public static WinFormsField Bld3 = new WinFormsField("BLD3", "Bld3");
+        public static WinFormsField Brkdn3 = new WinFormsField("BRKDN3", "Brkdn3");
+        public static WinFormsField Rn4 = new WinFormsField("RN4", "Rn4");
+        public static WinFormsField Acc4 = new WinFormsField("ACC4", "Acc4");
+        public static WinFormsField Typ4 = new WinFormsField("TYP4", "Typ4");
+        public static WinFormsField Date4 = new WinFormsField("DATE4", "Date4");
+        public static WinFormsField Aiir4 = new WinFormsField("AIIR4", "Aiir4");
+        public static WinFormsField Code4 = new WinFormsField("CODE4", "Code4");
+        public static WinFormsField Bld4 = new WinFormsField("BLD4", "Bld4");
+        public static WinFormsField Brkdn4 = new WinFormsField("BRKDN4", "Brkdn4");
+        public static WinFormsField Rn5 = new WinFormsField("RN5", "Rn5");
+        public static WinFormsField Acc5 = new WinFormsField("ACC5", "Acc5");
+        public static WinFormsField Typ5 = new WinFormsField("TYP5", "Typ5");
+        public static WinFormsField Date5 = new WinFormsField("DATE5", "Date5");
+        public static WinFormsField Aiir5 = new WinFormsField("AIIR5", "Aiir5");
+        public static WinFormsField Code5 = new WinFormsField("CODE5", "Code5");
+        public static WinFormsField Bld5 = new WinFormsField("BLD5", "Bld5");
+        public static WinFormsField Brkdn5 = new WinFormsField("BRKDN5", "Brkdn5");
+        public static WinFormsField Rn6 = new WinFormsField("RN6", "Rn6");
+        public static WinFormsField Acc6 = new WinFormsField("ACC6", "Acc6");
+        public static WinFormsField Typ6 = new WinFormsField("TYP6", "Typ6");
+        public static WinFormsField Date6 = new WinFormsField("DATE6", "Date6");
+        public static WinFormsField Aiir6 = new WinFormsField("AIIR6", "Aiir6");
+        public static WinFormsField Code6 = new WinFormsField("CODE6", "Code6");
+        public static WinFormsField Bld6 = new WinFormsField("BLD6", "Bld6");
+        public static WinFormsField Brkdn6 = new WinFormsField("BRKDN6", "Brkdn6");
+        public static WinFormsField Rn7 = new WinFormsField("RN7", "Rn7");
+        public static WinFormsField Acc7 = new WinFormsField("ACC7", "Acc7");
+        public static WinFormsField Typ7 = new WinFormsField("TYP7", "Typ7");
+        public static WinFormsField Date7 = new WinFormsField("DATE7", "Date7");
+        public static WinFormsField Aiir7 = new WinFormsField("AIIR7", "Aiir7");
+        public static WinFormsField Code7 = new WinFormsField("CODE7", "Code7");
+        public static WinFormsField Bld7 = new WinFormsField("BLD7", "Bld7");
+        public static WinFormsField Brkdn7 = new WinFormsField("BRKDN7", "Brkdn7");
+        public static WinFormsField Rn8 = new WinFormsField("RN8", "Rn8");
+        public static WinFormsField Acc8 = new WinFormsField("ACC8", "Acc8");
+        public static WinFormsField Typ8 = new WinFormsField("TYP8", "Typ8");
+        public static WinFormsField Date8 = new WinFormsField("DATE8", "Date8");
+        public static WinFormsField Aiir8 = new WinFormsField("AIIR8", "Aiir8");
+        public static WinFormsField Code8 = new WinFormsField("CODE8", "Code8");
+        public static WinFormsField Bld8 = new WinFormsField("BLD8", "Bld8");
+        public static WinFormsField Brkdn8 = new WinFormsField("BRKDN8", "Brkdn8");
+        public static WinFormsField Rn9 = new WinFormsField("RN9", "Rn9");
+        public static WinFormsField Acc9 = new WinFormsField("ACC9", "Acc9");
+        public static WinFormsField Typ9 = new WinFormsField("TYP9", "Typ9");
+        public static WinFormsField Date9 = new WinFormsField("DATE9", "Date9");
+        public static WinFormsField Aiir9 = new WinFormsField("AIIR9", "Aiir9");
+        public static WinFormsField Code9 = new WinFormsField("CODE9", "Code9");
+        public static WinFormsField Bld9 = new WinFormsField("BLD9", "Bld9");
+        public static WinFormsField Brkdn9 = new WinFormsField("BRKDN9", "Brkdn9");
+        public static WinFormsField Rn10 = new WinFormsField("RN10", "Rn10");
+        public static WinFormsField Acc10 = new WinFormsField("ACC10", "Acc10");
+        public static WinFormsField Typ10 = new WinFormsField("TYP10", "Typ10");
+        public static WinFormsField Date10 = new WinFormsField("DATE10", "Date10");
+        public static WinFormsField Aiir10 = new WinFormsField("AIIR10", "Aiir10");
+        public static WinFormsField Code10 = new WinFormsField("CODE10", "Code10");
+        public static WinFormsField Bld10 = new WinFormsField("BLD10", "Bld10");
+        public static WinFormsField Brkdn10 = new WinFormsField("BRKDN10", "Brkdn10");
+        public static WinFormsField Rn11 = new WinFormsField("RN11", "Rn11");
+        public static WinFormsField Acc11 = new WinFormsField("ACC11", "Acc11");
+        public static WinFormsField Typ11 = new WinFormsField("TYP11", "Typ11");
+        public static WinFormsField Date11 = new WinFormsField("DATE11", "Date11");
+        public static WinFormsField Aiir11 = new WinFormsField("AIIR11", "Aiir11");
+        public static WinFormsField Code11 = new WinFormsField("CODE11", "Code11");
+        public static WinFormsField Bld11 = new WinFormsField("BLD11", "Bld11");
+        public static WinFormsField Brkdn11 = new WinFormsField("BRKDN11", "Brkdn11");
+        public static WinFormsField Rn12 = new WinFormsField("RN12", "Rn12");
+        public static WinFormsField Acc12 = new WinFormsField("ACC12", "Acc12");
+        public static WinFormsField Typ12 = new WinFormsField("TYP12", "Typ12");
+        public static WinFormsField Date12 = new WinFormsField("DATE12", "Date12");
+        public static WinFormsField Aiir12 = new WinFormsField("AIIR12", "Aiir12");
+        public static WinFormsField Code12 = new WinFormsField("CODE12", "Code12");
+        public static WinFormsField Bld12 = new WinFormsField("BLD12", "Bld12");
+        public static WinFormsField Brkdn12 = new WinFormsField("BRKDN12", "Brkdn12");
+        public static WinFormsField Rn13 = new WinFormsField("RN13", "Rn13");
+        public static WinFormsField Acc13 = new WinFormsField("ACC13", "Acc13");
+        public static WinFormsField Typ13 = new WinFormsField("TYP13", "Typ13");
+        public static WinFormsField Date13 = new WinFormsField("DATE13", "Date13");
+        public static WinFormsField Aiir13 = new WinFormsField("AIIR13", "Aiir13");
+        public static WinFormsField Code13 = new WinFormsField("CODE13", "Code13");
+        public static WinFormsField Bld13 = new WinFormsField("BLD13", "Bld13");
+        public static WinFormsField Brkdn13 = new WinFormsField("BRKDN13", "Brkdn13");
+        public static WinFormsField Rn14 = new WinFormsField("RN14", "Rn14");
+        public static WinFormsField Acc14 = new WinFormsField("ACC14", "Acc14");
+        public static WinFormsField Typ14 = new WinFormsField("TYP14", "Typ14");
+        public static WinFormsField Date14 = new WinFormsField("DATE14", "Date14");
+        public static WinFormsField Aiir14 = new WinFormsField("AIIR14", "Aiir14");
+        public static WinFormsField Code14 = new WinFormsField("CODE14", "Code14");
+        public static WinFormsField Bld14 = new WinFormsField("BLD14", "Bld14");
+        public static WinFormsField Brkdn14 = new WinFormsField("BRKDN14", "Brkdn14");
+        public static WinFormsField Rn15 = new WinFormsField("RN15", "Rn15");
+        public static WinFormsField Acc15 = new WinFormsField("ACC15", "Acc15");
+        public static WinFormsField Typ15 = new WinFormsField("TYP15", "Typ15");
+        public static WinFormsField Date15 = new WinFormsField("DATE15", "Date15");
+        public static WinFormsField Aiir15 = new WinFormsField("AIIR15", "Aiir15");
+        public static WinFormsField Code15 = new WinFormsField("CODE15", "Code15");
+        public static WinFormsField Bld15 = new WinFormsField("BLD15", "Bld15");
+        public static WinFormsField Brkdn15 = new WinFormsField("BRKDN15", "Brkdn15");
+        public static WinFormsField Message = new WinFormsField("MESSAGE", "Message");
+        public static WinFormsField SystemInfoFree6 = new WinFormsField("SYSTEM-INFO-FREE-6", "20", "20");
+        public static WinFormsField SystemInfoFree4 = new WinFormsField("SYSTEM-INFO-FREE-4", "18", "18");
+        public static WinFormsField SystemInfoFree7 = new WinFormsField("SYSTEM-INFO-FREE-7", "21", "21");
+        public static WinFormsField SystemInfoFree5 = new WinFormsField("SYSTEM-INFO-FREE-5", "19", "19");
+    }
+}

@@ -1,0 +1,1307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{656D4F3F-85E6-4758-8BEA-EB388361F42D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SCRIPAU.Automation</RootNamespace>
+    <AssemblyName>SCRIPAU.Automation</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>cbea8be0</NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <AppConfig>App.Debug.config</AppConfig>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'VMS|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\VMS\</OutputPath>
+    <AppConfig>App.VMS.config</AppConfig>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Linux|AnyCPU'">
+    <OutputPath>bin\Linux\</OutputPath>
+    <AppConfig>App.Linux.config</AppConfig>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>false</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="nunit.core.interfaces">
+      <HintPath>..\packages\SpecFlow.NUnit.Runners.1.0.0\..\NUnit.Runners.2.6.4\tools\lib\nunit.core.interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.5.0\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.0.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.0.0\lib\net40\Renci.SshNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spartan.Core, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Assemblies\Spartan.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Spartan.Core.Terminal">
+      <HintPath>Terminal\Spartan.Core.Terminal.dll</HintPath>
+    </Reference>
+    <Reference Include="Spartan.Core.WinForms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Spartan.Core.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="SpecRun.SpecFlowPlugin, Version=1.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SpecRun.SpecFlow.1.5.2\lib\net45\SpecRun.SpecFlowPlugin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.XML" />
+    <Reference Include="TechTalk.SpecFlow, Version=2.1.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SpecFlow.2.1.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TechTalk.SpecRun, Version=1.5.2.0, Culture=neutral, PublicKeyToken=d0fc5cc18b3b389b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SpecRun.SpecFlow.1.5.2\lib\net45\TechTalk.SpecRun.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="VirtualPath, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\VirtualPath.0.3.0\lib\net45\VirtualPath.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="VirtualPath.SshNet, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\VirtualPath.SshNet.0.3.0\lib\net45\VirtualPath.SshNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebDriver, Version=2.43.1.0, Culture=neutral, PublicKeyToken=1c2bd1631853048f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Spartan\Assemblies\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WinSCPnet, Version=1.2.9.5665, Culture=neutral, PublicKeyToken=2271ec4a3c56d0bf, processorArchitecture=MSIL">
+      <HintPath>..\packages\WinSCP.5.7.5\lib\WinSCPnet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise />
+  </Choose>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reporting\ESSReportingGold1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ESSReportingGold.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\UpdateReportRun.feature.cs">
+      <DependentUpon>UpdateReportRun.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\ReportingGold.feature.cs">
+      <DependentUpon>ReportingGold.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Screens\ACCPAR01.cs" />
+    <Compile Include="Screens\ALS01001.cs" />
+    <Compile Include="Screens\ALS01010.cs" />
+    <Compile Include="Screens\ALS01020.cs" />
+    <Compile Include="Screens\ALS01025.cs" />
+    <Compile Include="Screens\ALS01028.cs" />
+    <Compile Include="Screens\ALS01030.cs" />
+    <Compile Include="Screens\ALS01040.cs" />
+    <Compile Include="Screens\BILCTL99.cs" />
+    <Compile Include="Screens\BLK00101.cs" />
+    <Compile Include="Screens\BLKSCH01.cs" />
+    <Compile Include="Screens\BLKSCH02.cs" />
+    <Compile Include="Screens\BLKSCH03.cs" />
+    <Compile Include="Screens\CFS00001.cs" />
+    <Compile Include="Screens\CFS00400.cs" />
+    <Compile Include="Screens\CFS00401.cs" />
+    <Compile Include="Screens\CFS00402.cs" />
+    <Compile Include="Screens\CFS00409.cs" />
+    <Compile Include="Screens\CFS03001.cs" />
+    <Compile Include="Screens\CFS03000.cs" />
+    <Compile Include="Screens\COYWRN01.cs" />
+    <Compile Include="Screens\DIS05010.cs" />
+    <Compile Include="Screens\DIS05030.cs" />
+    <Compile Include="Screens\DIS05040.cs" />
+    <Compile Include="Screens\DIS05060.cs" />
+    <Compile Include="Screens\DIS05070.cs" />
+    <Compile Include="Screens\DIS05080.cs" />
+    <Compile Include="Screens\DIS05090.cs" />
+    <Compile Include="Screens\DIVX1001.cs" />
+    <Compile Include="Screens\DIVX1003.cs" />
+    <Compile Include="Screens\DIVX1005.cs" />
+    <Compile Include="Screens\DIVX1008.cs" />
+    <Compile Include="Screens\DIVX1010.cs" />
+    <Compile Include="Screens\DIVX1012.cs" />
+    <Compile Include="Screens\DIVX1013.cs" />
+    <Compile Include="Screens\DIVX1014.cs" />
+    <Compile Include="Screens\DIVX1016.cs" />
+    <Compile Include="Screens\DIVX1019.cs" />
+    <Compile Include="Screens\DIVX1020.cs" />
+    <Compile Include="Screens\DIVX1022.cs" />
+    <Compile Include="Screens\DIVX1024.cs" />
+    <Compile Include="Screens\DIVX1030.cs" />
+    <Compile Include="Screens\DIVX1031.cs" />
+    <Compile Include="Screens\DIVX1039.cs" />
+    <Compile Include="Screens\DIVX1042.cs" />
+    <Compile Include="Screens\DIVX1046.cs" />
+    <Compile Include="Screens\DIVX1048.cs" />
+    <Compile Include="Screens\DIVX1050.cs" />
+    <Compile Include="Screens\DIVX1052.cs" />
+    <Compile Include="Screens\DIVX1080.cs" />
+    <Compile Include="Screens\ENSSTM02.cs" />
+    <Compile Include="Screens\EOL00106.cs" />
+    <Compile Include="Screens\EOL00128.cs" />
+    <Compile Include="Screens\EOL00501.cs" />
+    <Compile Include="Screens\EOL00601.cs" />
+    <Compile Include="Screens\EOL00602.cs" />
+    <Compile Include="Screens\EOL02201.cs" />
+    <Compile Include="Screens\EOL02202.cs" />
+    <Compile Include="Screens\EOL02203.cs" />
+    <Compile Include="Screens\EOL02204.cs" />
+    <Compile Include="Screens\EOLBLK02.cs" />
+    <Compile Include="Screens\EOLBLK04.cs" />
+    <Compile Include="Screens\EOLBLK05.cs" />
+    <Compile Include="Screens\HKS00201.cs" />
+    <Compile Include="Screens\HKS00202.cs" />
+    <Compile Include="Screens\HKS01501.cs" />
+    <Compile Include="Screens\HKS01508.cs" />
+    <Compile Include="Screens\HKS01516.cs" />
+    <Compile Include="Screens\HKS01901.cs" />
+    <Compile Include="Screens\ISX01001.cs" />
+    <Compile Include="Screens\ISX01002.cs" />
+    <Compile Include="Screens\ISX01005.cs" />
+    <Compile Include="Screens\ISX01006.cs" />
+    <Compile Include="Screens\ISX01007.cs" />
+    <Compile Include="Screens\ISX01010.cs" />
+    <Compile Include="Screens\ISX01070.cs" />
+    <Compile Include="Screens\NCGUPD01.cs" />
+    <Compile Include="Screens\OLS01502.cs" />
+    <Compile Include="Screens\OLS02701.cs" />
+    <Compile Include="Screens\OLS02702.cs" />
+    <Compile Include="Screens\OLS02703.cs" />
+    <Compile Include="Screens\OLS02801.cs" />
+    <Compile Include="Screens\OLS02901.cs" />
+    <Compile Include="Screens\OLS03001.cs" />
+    <Compile Include="Screens\OLS03101.cs" />
+    <Compile Include="Screens\OLS03102.cs" />
+    <Compile Include="Screens\OLS03103.cs" />
+    <Compile Include="Screens\OLS03104.cs" />
+    <Compile Include="Screens\OLS03105.cs" />
+    <Compile Include="Screens\OLS03402.cs" />
+    <Compile Include="Screens\OLS03405.cs" />
+    <Compile Include="Screens\OLS03408.cs" />
+    <Compile Include="Screens\OLS03601.cs" />
+    <Compile Include="Screens\OLS03602.cs" />
+    <Compile Include="Screens\OLS03703.cs" />
+    <Compile Include="Screens\OLS03704.cs" />
+    <Compile Include="Screens\OLS03705.cs" />
+    <Compile Include="Screens\OLS03706.cs" />
+    <Compile Include="Screens\OLS03707.cs" />
+    <Compile Include="Screens\OLS03708.cs" />
+    <Compile Include="Screens\OLS03801.cs" />
+    <Compile Include="Screens\OLS03802.cs" />
+    <Compile Include="Screens\OLS05001.cs" />
+    <Compile Include="Screens\OLS05002.cs" />
+    <Compile Include="Screens\OLS05101.cs" />
+    <Compile Include="Screens\OLS05102.cs" />
+    <Compile Include="Screens\OLS05501.cs" />
+    <Compile Include="Screens\OLS05502.cs" />
+    <Compile Include="Screens\OLS08601.cs" />
+    <Compile Include="Screens\OLS10201.cs" />
+    <Compile Include="Screens\OLS10202.cs" />
+    <Compile Include="Screens\OLS10203.cs" />
+    <Compile Include="Screens\OLS10204.cs" />
+    <Compile Include="Screens\OLS10301.cs" />
+    <Compile Include="Screens\OLS10302.cs" />
+    <Compile Include="Screens\OLS10401.cs" />
+    <Compile Include="Screens\OLS10501.cs" />
+    <Compile Include="Screens\OLS10601.cs" />
+    <Compile Include="Screens\OLS10701.cs" />
+    <Compile Include="Screens\OLS10702.cs" />
+    <Compile Include="Screens\OLS10704.cs" />
+    <Compile Include="Screens\OLS11601.cs" />
+    <Compile Include="Screens\OLS11602.cs" />
+    <Compile Include="Screens\OLS11603.cs" />
+    <Compile Include="Screens\OLS11699.cs" />
+    <Compile Include="Screens\OLS11901.cs" />
+    <Compile Include="Screens\OLS11902.cs" />
+    <Compile Include="Screens\OLS11903.cs" />
+    <Compile Include="Screens\OLSB0101.cs" />
+    <Compile Include="Screens\OLSB0102.cs" />
+    <Compile Include="Screens\OLSB0104.cs" />
+    <Compile Include="Screens\OLSB0105.cs" />
+    <Compile Include="Screens\OLSB0106.cs" />
+    <Compile Include="Screens\OLSB0401.cs" />
+    <Compile Include="Screens\OLSB0402.cs" />
+    <Compile Include="Screens\OLSB0403.cs" />
+    <Compile Include="Screens\OLSB0404.cs" />
+    <Compile Include="Screens\OLSB0405.cs" />
+    <Compile Include="Screens\OLSCRTBA.cs" />
+    <Compile Include="Screens\OLSCRTBF.cs" />
+    <Compile Include="Screens\OLSCRTFI.cs" />
+    <Compile Include="Screens\OLSCRTRE.cs" />
+    <Compile Include="Screens\OLSCRTSA.cs" />
+    <Compile Include="Screens\OLSCRTSC.cs" />
+    <Compile Include="Screens\OLSCRTSP.cs" />
+    <Compile Include="Screens\OLSCRTTA.cs" />
+    <Compile Include="Screens\OLSCRTTC.cs" />
+    <Compile Include="Screens\OLSCRTTU.cs" />
+    <Compile Include="Screens\OLSCRTUU.cs" />
+    <Compile Include="Screens\OLSCRTUX.cs" />
+    <Compile Include="Screens\OLSCRTWH.cs" />
+    <Compile Include="Screens\OLSCRTWS.cs" />
+    <Compile Include="Screens\OLSCUMWN.cs" />
+    <Compile Include="Screens\ONLSCH02.cs" />
+    <Compile Include="Screens\PAS01000.cs" />
+    <Compile Include="Screens\PAS01001.cs" />
+    <Compile Include="Screens\PAS01002.cs" />
+    <Compile Include="Screens\PAS01004.cs" />
+    <Compile Include="Screens\PAS01005.cs" />
+    <Compile Include="Screens\RSS10001.cs" />
+    <Compile Include="Screens\DIVX1033.cs" />
+    <Compile Include="Screens\DIVX1034.cs" />
+    <Compile Include="Screens\DIVX1035.cs" />
+    <Compile Include="Screens\DIVX1040.cs" />
+    <Compile Include="Screens\DIVX1060.cs" />
+    <Compile Include="Screens\DIVX1062.cs" />
+    <Compile Include="Screens\DIVX1082.cs" />
+    <Compile Include="Screens\EHK01001.cs" />
+    <Compile Include="Screens\EHK01002.cs" />
+    <Compile Include="Screens\EHK01003.cs" />
+    <Compile Include="Screens\EHK01004.cs" />
+    <Compile Include="Screens\EHK01005.cs" />
+    <Compile Include="Screens\EHK01006.cs" />
+    <Compile Include="Screens\CFS00002.cs" />
+    <Compile Include="Screens\EHK01007.cs" />
+    <Compile Include="Screens\EHK01008.cs" />
+    <Compile Include="Screens\EHK01009.cs" />
+    <Compile Include="Screens\EHK01010.cs" />
+    <Compile Include="Screens\EHK01012.cs" />
+    <Compile Include="Screens\EHK01013.cs" />
+    <Compile Include="Screens\EHK01014.cs" />
+    <Compile Include="Screens\EHK01016.cs" />
+    <Compile Include="Screens\EHK01020.cs" />
+    <Compile Include="Screens\EHK01025.cs" />
+    <Compile Include="Screens\EHK01026.cs" />
+    <Compile Include="Screens\EHK01030.cs" />
+    <Compile Include="Screens\EHK01032.cs" />
+    <Compile Include="Screens\EHK01034.cs" />
+    <Compile Include="Screens\EHK01035.cs" />
+    <Compile Include="Screens\EHK01037.cs" />
+    <Compile Include="Screens\EHK01038.cs" />
+    <Compile Include="Screens\EHK01039.cs" />
+    <Compile Include="Screens\EHK01040.cs" />
+    <Compile Include="Screens\EHK01045.cs" />
+    <Compile Include="Screens\EHK01046.cs" />
+    <Compile Include="Screens\EHK010MN.cs" />
+    <Compile Include="Screens\EHK06000.cs" />
+    <Compile Include="Screens\EHK06001.cs" />
+    <Compile Include="Screens\EHK06004.cs" />
+    <Compile Include="Screens\EHK06010.cs" />
+    <Compile Include="Screens\ENS01001.cs" />
+    <Compile Include="Screens\ENS01002.cs" />
+    <Compile Include="Screens\ENS01003.cs" />
+    <Compile Include="Screens\ENS01005.cs" />
+    <Compile Include="Screens\ENS01006.cs" />
+    <Compile Include="Screens\ENS01007.cs" />
+    <Compile Include="Screens\ENS01008.cs" />
+    <Compile Include="Screens\ENS01009.cs" />
+    <Compile Include="Screens\ENS01010.cs" />
+    <Compile Include="Screens\ENS01011.cs" />
+    <Compile Include="Screens\ENS01012.cs" />
+    <Compile Include="Screens\ENS01013.cs" />
+    <Compile Include="Screens\ENS01014.cs" />
+    <Compile Include="Screens\ENS01016.cs" />
+    <Compile Include="Screens\ENS01017.cs" />
+    <Compile Include="Screens\ENS01020.cs" />
+    <Compile Include="Screens\ENS01021.cs" />
+    <Compile Include="Screens\ENS01024.cs" />
+    <Compile Include="Screens\ENS01028.cs" />
+    <Compile Include="Screens\ENS01029.cs" />
+    <Compile Include="Screens\ENS01033.cs" />
+    <Compile Include="Screens\ENS01034.cs" />
+    <Compile Include="Screens\ENS01035.cs" />
+    <Compile Include="Screens\ENS01036.cs" />
+    <Compile Include="Screens\ENS01039.cs" />
+    <Compile Include="Screens\ENS01040.cs" />
+    <Compile Include="Screens\ENS01041.cs" />
+    <Compile Include="Screens\ENS01042.cs" />
+    <Compile Include="Screens\ENS01043.cs" />
+    <Compile Include="Screens\ENS01047.cs" />
+    <Compile Include="Screens\ENS01048.cs" />
+    <Compile Include="Screens\ENS0104I.cs" />
+    <Compile Include="Screens\ENS0104Z.cs" />
+    <Compile Include="Screens\ENS01050.cs" />
+    <Compile Include="Screens\ENS01052.cs" />
+    <Compile Include="Screens\ENS01053.cs" />
+    <Compile Include="Screens\ENS01060.cs" />
+    <Compile Include="Screens\ENS01061.cs" />
+    <Compile Include="Screens\ENS01062.cs" />
+    <Compile Include="Screens\ENS01063.cs" />
+    <Compile Include="Screens\ENS01066.cs" />
+    <Compile Include="Screens\ENS01067.cs" />
+    <Compile Include="Screens\ENS01069.cs" />
+    <Compile Include="Screens\ENS0106E.cs" />
+    <Compile Include="Screens\ENS0106P.cs" />
+    <Compile Include="Screens\ENS01072.cs" />
+    <Compile Include="Screens\ENS01075.cs" />
+    <Compile Include="Screens\ENS01080.cs" />
+    <Compile Include="Screens\ENS01081.cs" />
+    <Compile Include="Screens\ENS01082.cs" />
+    <Compile Include="Screens\ENS01084.cs" />
+    <Compile Include="Screens\ENS01085.cs" />
+    <Compile Include="Screens\ENS01086.cs" />
+    <Compile Include="Screens\ENS01088.cs" />
+    <Compile Include="Screens\ENS01089.cs" />
+    <Compile Include="Screens\ENS01090.cs" />
+    <Compile Include="Screens\ENS010CA.cs" />
+    <Compile Include="Screens\ENS010HF.cs" />
+    <Compile Include="Screens\ENS02000.cs" />
+    <Compile Include="Screens\ENS02001.cs" />
+    <Compile Include="Screens\ENS02002.cs" />
+    <Compile Include="Screens\ENS04010.cs" />
+    <Compile Include="Screens\ENS04020.cs" />
+    <Compile Include="Screens\ENS04030.cs" />
+    <Compile Include="Screens\ENS04040.cs" />
+    <Compile Include="Screens\ENS04050.cs" />
+    <Compile Include="Screens\ENS04060.cs" />
+    <Compile Include="Screens\ENS04070.cs" />
+    <Compile Include="Screens\ENSACC01.cs" />
+    <Compile Include="Screens\ENSACC02.cs" />
+    <Compile Include="Screens\ENSACC03.cs" />
+    <Compile Include="Screens\ENSDIS01.cs" />
+    <Compile Include="Screens\ENSDIV01.cs" />
+    <Compile Include="Screens\ENSDIV02.cs" />
+    <Compile Include="Screens\ENSDIV03.cs" />
+    <Compile Include="Screens\ENSDIV04.cs" />
+    <Compile Include="Screens\ENSDIV05.cs" />
+    <Compile Include="Screens\ENSDIV20.cs" />
+    <Compile Include="Screens\ENSEIS01.cs" />
+    <Compile Include="Screens\ENSESS01.cs" />
+    <Compile Include="Screens\ENSESS03.cs" />
+    <Compile Include="Screens\ENSESS04.cs" />
+    <Compile Include="Screens\ENSESS05.cs" />
+    <Compile Include="Screens\ENSESS06.cs" />
+    <Compile Include="Screens\ENSESS07.cs" />
+    <Compile Include="Screens\ENSESS11.cs" />
+    <Compile Include="Screens\ENSESS12.cs" />
+    <Compile Include="Screens\ENSESS13.cs" />
+    <Compile Include="Screens\ENSESS14.cs" />
+    <Compile Include="Screens\ENSESS15.cs" />
+    <Compile Include="Screens\ENSESS16.cs" />
+    <Compile Include="Screens\ENSESS17.cs" />
+    <Compile Include="Screens\ENSESS18.cs" />
+    <Compile Include="Screens\ENSESS19.cs" />
+    <Compile Include="Screens\ENSESS20.cs" />
+    <Compile Include="Screens\ENSESS21.cs" />
+    <Compile Include="Screens\ENSESS22.cs" />
+    <Compile Include="Screens\ENSESS24.cs" />
+    <Compile Include="Screens\ENSESS25.cs" />
+    <Compile Include="Screens\ENSESS26.cs" />
+    <Compile Include="Screens\ENSESS28.cs" />
+    <Compile Include="Screens\ENSESS31.cs" />
+    <Compile Include="Screens\ENSESS32.cs" />
+    <Compile Include="Screens\ENSESS33.cs" />
+    <Compile Include="Screens\ENSESS34.cs" />
+    <Compile Include="Screens\ENSESS40.cs" />
+    <Compile Include="Screens\ENSESS42.cs" />
+    <Compile Include="Screens\ENSESS43.cs" />
+    <Compile Include="Screens\ENSESS45.cs" />
+    <Compile Include="Screens\ENSESS46.cs" />
+    <Compile Include="Screens\ENSESS47.cs" />
+    <Compile Include="Screens\ENSESS49.cs" />
+    <Compile Include="Screens\ENSESS50.cs" />
+    <Compile Include="Screens\ENSESS51.cs" />
+    <Compile Include="Screens\ENSESS52.cs" />
+    <Compile Include="Screens\ENSESS53.cs" />
+    <Compile Include="Screens\ENSESS54.cs" />
+    <Compile Include="Screens\ENSESS55.cs" />
+    <Compile Include="Screens\ENSESS56.cs" />
+    <Compile Include="Screens\ENSESS58.cs" />
+    <Compile Include="Screens\ENSPCE01.cs" />
+    <Compile Include="Screens\ENSPCE02.cs" />
+    <Compile Include="Screens\ENSPCE03.cs" />
+    <Compile Include="Screens\ENSPCE04.cs" />
+    <Compile Include="Screens\ENSPCE06.cs" />
+    <Compile Include="Screens\ENSPCE10.cs" />
+    <Compile Include="Screens\ENSPND01.cs" />
+    <Compile Include="Screens\ENSPND02.cs" />
+    <Compile Include="Screens\ENSSPLBP.cs" />
+    <Compile Include="Screens\ENSSPLED.cs" />
+    <Compile Include="Screens\ENSSTM01.cs" />
+    <Compile Include="Screens\ENSSTM06.cs" />
+    <Compile Include="Screens\ENSSTM34.cs" />
+    <Compile Include="Screens\ENSSUS03.cs" />
+    <Compile Include="Screens\ENSTRD47.cs" />
+    <Compile Include="Screens\ENSTRD48.cs" />
+    <Compile Include="Screens\ENSTRD57.cs" />
+    <Compile Include="Screens\ENSTRDSC.cs" />
+    <Compile Include="Screens\ENSTRDSH.cs" />
+    <Compile Include="Screens\ENTUSA01.cs" />
+    <Compile Include="Screens\ENTUSA03.cs" />
+    <Compile Include="Screens\ENTUSA04.cs" />
+    <Compile Include="Screens\ENTUSA05.cs" />
+    <Compile Include="Screens\EOL00101.cs" />
+    <Compile Include="Screens\EOL00103.cs" />
+    <Compile Include="Screens\EOL00107.cs" />
+    <Compile Include="Screens\EOL00109.cs" />
+    <Compile Include="Screens\EOL00113.cs" />
+    <Compile Include="Screens\EOL00114.cs" />
+    <Compile Include="Screens\EOL00115.cs" />
+    <Compile Include="Screens\EOL00116.cs" />
+    <Compile Include="Screens\EOL00119.cs" />
+    <Compile Include="Screens\EOL00120.cs" />
+    <Compile Include="Screens\EOL00122.cs" />
+    <Compile Include="Screens\EOL00123.cs" />
+    <Compile Include="Screens\EOL00124.cs" />
+    <Compile Include="Screens\EOL00126.cs" />
+    <Compile Include="Screens\EOL00131.cs" />
+    <Compile Include="Screens\EOL00132.cs" />
+    <Compile Include="Screens\EOL00133.cs" />
+    <Compile Include="Screens\EOL00134.cs" />
+    <Compile Include="Screens\EOL00135.cs" />
+    <Compile Include="Screens\EOL00137.cs" />
+    <Compile Include="Screens\EOL00401.cs" />
+    <Compile Include="Screens\EOL00402.cs" />
+    <Compile Include="Screens\EOL00901.cs" />
+    <Compile Include="Screens\EOL00905.cs" />
+    <Compile Include="Screens\EOL01301.cs" />
+    <Compile Include="Screens\EOL01302.cs" />
+    <Compile Include="Screens\EOL01303.cs" />
+    <Compile Include="Screens\EOL01401.cs" />
+    <Compile Include="Screens\EOL01402.cs" />
+    <Compile Include="Screens\EOL01701.cs" />
+    <Compile Include="Screens\EOL01901.cs" />
+    <Compile Include="Screens\EOL01902.cs" />
+    <Compile Include="Screens\EOL02701.cs" />
+    <Compile Include="Screens\EOL02702.cs" />
+    <Compile Include="Screens\EOL02704.cs" />
+    <Compile Include="Screens\EOL027BA.cs" />
+    <Compile Include="Screens\EOL02801.cs" />
+    <Compile Include="Screens\EOL02802.cs" />
+    <Compile Include="Screens\EOL02803.cs" />
+    <Compile Include="Screens\EOL02901.cs" />
+    <Compile Include="Screens\EOL02902.cs" />
+    <Compile Include="Screens\EOL02903.cs" />
+    <Compile Include="Screens\EOL02904.cs" />
+    <Compile Include="Screens\EOL02905.cs" />
+    <Compile Include="Screens\EOL02906.cs" />
+    <Compile Include="Screens\EOL03301.cs" />
+    <Compile Include="Screens\EOL03302.cs" />
+    <Compile Include="Screens\EOL03303.cs" />
+    <Compile Include="Screens\EOL03304.cs" />
+    <Compile Include="Screens\EOL03305.cs" />
+    <Compile Include="Screens\EOL03306.cs" />
+    <Compile Include="Screens\EOL03307.cs" />
+    <Compile Include="Screens\EOL03308.cs" />
+    <Compile Include="Screens\EOL03401.cs" />
+    <Compile Include="Screens\EOL03402.cs" />
+    <Compile Include="Screens\EOL03403.cs" />
+    <Compile Include="Screens\EOL03407.cs" />
+    <Compile Include="Screens\EOL03408.cs" />
+    <Compile Include="Screens\EOL03409.cs" />
+    <Compile Include="Screens\ERS00100.cs" />
+    <Compile Include="Screens\ERS00110.cs" />
+    <Compile Include="Screens\ERS01001.cs" />
+    <Compile Include="Screens\ERS01002.cs" />
+    <Compile Include="Screens\ERS01003.cs" />
+    <Compile Include="Screens\ERS01004.cs" />
+    <Compile Include="Screens\ERS01005.cs" />
+    <Compile Include="Screens\ERS01008.cs" />
+    <Compile Include="Screens\ERS01009.cs" />
+    <Compile Include="Screens\ERS01010.cs" />
+    <Compile Include="Screens\ERS01011.cs" />
+    <Compile Include="Screens\ERS01012.cs" />
+    <Compile Include="Screens\ERS01013.cs" />
+    <Compile Include="Screens\ERS01016.cs" />
+    <Compile Include="Screens\ERS01017.cs" />
+    <Compile Include="Screens\ERS01020.cs" />
+    <Compile Include="Screens\ERS01021.cs" />
+    <Compile Include="Screens\ERS01022.cs" />
+    <Compile Include="Screens\ERS01023.cs" />
+    <Compile Include="Screens\ERS01024.cs" />
+    <Compile Include="Screens\ERS01025.cs" />
+    <Compile Include="Screens\ERS01026.cs" />
+    <Compile Include="Screens\ERS01028.cs" />
+    <Compile Include="Screens\ERS01029.cs" />
+    <Compile Include="Screens\ERS01030.cs" />
+    <Compile Include="Screens\ERS01031.cs" />
+    <Compile Include="Screens\ERS01032.cs" />
+    <Compile Include="Screens\ERS01033.cs" />
+    <Compile Include="Screens\ERS01034.cs" />
+    <Compile Include="Screens\ERS01035.cs" />
+    <Compile Include="Screens\ERS01036.cs" />
+    <Compile Include="Screens\ERS01037.cs" />
+    <Compile Include="Screens\ERS01038.cs" />
+    <Compile Include="Screens\ERS01039.cs" />
+    <Compile Include="Screens\ERS01040.cs" />
+    <Compile Include="Screens\ERS01041.cs" />
+    <Compile Include="Screens\ERS01042.cs" />
+    <Compile Include="Screens\ERS01043.cs" />
+    <Compile Include="Screens\ERS01044.cs" />
+    <Compile Include="Screens\ERS01046.cs" />
+    <Compile Include="Screens\ERS01050.cs" />
+    <Compile Include="Screens\ERS01051.cs" />
+    <Compile Include="Screens\ERS01052.cs" />
+    <Compile Include="Screens\ERS01054.cs" />
+    <Compile Include="Screens\ERS01055.cs" />
+    <Compile Include="Screens\ERS01056.cs" />
+    <Compile Include="Screens\ERS01057.cs" />
+    <Compile Include="Screens\ERS01058.cs" />
+    <Compile Include="Screens\ERS01059.cs" />
+    <Compile Include="Screens\ERS01062.cs" />
+    <Compile Include="Screens\ERS01063.cs" />
+    <Compile Include="Screens\ERS01064.cs" />
+    <Compile Include="Screens\FIXUPS.cs" />
+    <Compile Include="Screens\HCC00101.cs" />
+    <Compile Include="Screens\HCC00102.cs" />
+    <Compile Include="Screens\HKS00101.cs" />
+    <Compile Include="Screens\HKS01503.cs" />
+    <Compile Include="Screens\HKSJOB00.cs" />
+    <Compile Include="Screens\HKSJOB01.cs" />
+    <Compile Include="Screens\HLDADD00.cs" />
+    <Compile Include="Screens\HLDADD01.cs" />
+    <Compile Include="Screens\HOSTFN01.cs" />
+    <Compile Include="Screens\ENS00101.cs" />
+    <Compile Include="Screens\ICENFY01.cs" />
+    <Compile Include="Screens\JOBSUB00.cs" />
+    <Compile Include="Screens\JOBSUB04.cs" />
+    <Compile Include="Screens\JOBSUB03.cs" />
+    <Compile Include="Screens\JOBSUB90.cs" />
+    <Compile Include="Screens\JOBSUB21.cs" />
+    <Compile Include="Screens\JOBSUB05.cs" />
+    <Compile Include="Screens\MSG01000.cs" />
+    <Compile Include="Screens\NOMSCH01.cs" />
+    <Compile Include="Screens\OLS00101.cs" />
+    <Compile Include="Screens\OLS00120.cs" />
+    <Compile Include="Screens\OLS01101.cs" />
+    <Compile Include="Screens\OLS01102.cs" />
+    <Compile Include="Screens\OLS01103.cs" />
+    <Compile Include="Screens\OLS01104.cs" />
+    <Compile Include="Screens\OLS01106.cs" />
+    <Compile Include="Screens\OLS01110.cs" />
+    <Compile Include="Screens\OLS01112.cs" />
+    <Compile Include="Screens\OLS01113.cs" />
+    <Compile Include="Screens\OLS01120.cs" />
+    <Compile Include="Screens\OLS01201.cs" />
+    <Compile Include="Screens\OLS01202.cs" />
+    <Compile Include="Screens\OLS01210.cs" />
+    <Compile Include="Screens\OLS01230.cs" />
+    <Compile Include="Screens\OLS01301.cs" />
+    <Compile Include="Screens\OLS01303.cs" />
+    <Compile Include="Screens\OLS01304.cs" />
+    <Compile Include="Screens\OLS01305.cs" />
+    <Compile Include="Screens\OLS01306.cs" />
+    <Compile Include="Screens\OLS01401.cs" />
+    <Compile Include="Screens\OLS01403.cs" />
+    <Compile Include="Screens\OLS01404.cs" />
+    <Compile Include="Screens\OLS01501.cs" />
+    <Compile Include="Screens\OLS01511.cs" />
+    <Compile Include="Screens\OLS01610.cs" />
+    <Compile Include="Screens\OLS01620.cs" />
+    <Compile Include="Screens\OLS01630.cs" />
+    <Compile Include="Screens\OLS01801.cs" />
+    <Compile Include="Screens\OLS01901.cs" />
+    <Compile Include="Screens\OLS03301.cs" />
+    <Compile Include="Screens\OLS03302.cs" />
+    <Compile Include="Screens\OLS03303.cs" />
+    <Compile Include="Screens\OLS03501.cs" />
+    <Compile Include="Screens\OLS03502.cs" />
+    <Compile Include="Screens\OLS04201.cs" />
+    <Compile Include="Screens\OLS04204.cs" />
+    <Compile Include="Screens\OLS06801.cs" />
+    <Compile Include="Screens\OLS06803.cs" />
+    <Compile Include="Screens\OLS06805.cs" />
+    <Compile Include="Screens\OLS11004.cs" />
+    <Compile Include="Screens\OLS11002.cs" />
+    <Compile Include="Screens\OLS11010.cs" />
+    <Compile Include="Screens\OLS11001.cs" />
+    <Compile Include="Screens\OLS15001.cs" />
+    <Compile Include="Screens\OLS06807.cs" />
+    <Compile Include="Screens\OLS068CS.cs" />
+    <Compile Include="Screens\OLSB0602.cs" />
+    <Compile Include="Screens\OLSB0701.cs" />
+    <Compile Include="Screens\OLS10001.cs" />
+    <Compile Include="Screens\OLSB1010.cs" />
+    <Compile Include="Screens\OLSBLK01.cs" />
+    <Compile Include="Screens\OLSBLK02.cs" />
+    <Compile Include="Screens\PXS00101.cs" />
+    <Compile Include="Screens\PXS00102.cs" />
+    <Compile Include="Screens\PXS00103.cs" />
+    <Compile Include="Screens\PXS00106.cs" />
+    <Compile Include="Screens\PXS00107.cs" />
+    <Compile Include="Screens\PXS00109.cs" />
+    <Compile Include="Screens\PXS00113.cs" />
+    <Compile Include="Screens\PXS00201.cs" />
+    <Compile Include="Screens\PXS00203.cs" />
+    <Compile Include="Screens\PXS00211.cs" />
+    <Compile Include="Screens\PXS00202.cs" />
+    <Compile Include="Screens\PXS00290.cs" />
+    <Compile Include="Screens\PXS00301.cs" />
+    <Compile Include="Screens\PXS00500.cs" />
+    <Compile Include="Screens\PXS01500.cs" />
+    <Compile Include="Screens\PXS01501.cs" />
+    <Compile Include="Screens\PXS01502.cs" />
+    <Compile Include="Screens\PXS01503.cs" />
+    <Compile Include="Screens\PXS01507.cs" />
+    <Compile Include="Screens\PXS01512.cs" />
+    <Compile Include="Screens\PXS01513.cs" />
+    <Compile Include="Screens\PXS02001.cs" />
+    <Compile Include="Screens\PXS02002.cs" />
+    <Compile Include="Screens\PXS02003.cs" />
+    <Compile Include="Screens\PXS02004.cs" />
+    <Compile Include="Screens\PXS02101.cs" />
+    <Compile Include="Screens\PXS02102.cs" />
+    <Compile Include="Screens\PXS02501.cs" />
+    <Compile Include="Screens\PXS02504.cs" />
+    <Compile Include="Screens\PXS03600.cs" />
+    <Compile Include="Screens\PXS03601.cs" />
+    <Compile Include="Screens\PXS03701.cs" />
+    <Compile Include="Screens\PXS03702.cs" />
+    <Compile Include="Screens\PXS03800.cs" />
+    <Compile Include="Screens\PXS03801.cs" />
+    <Compile Include="Screens\PXS03802.cs" />
+    <Compile Include="Screens\PXS04001.cs" />
+    <Compile Include="Screens\PXS04501.cs" />
+    <Compile Include="Screens\RSS01030.cs" />
+    <Compile Include="Screens\RSS01020.cs" />
+    <Compile Include="Screens\RSS01015.cs" />
+    <Compile Include="Screens\RSS01010.cs" />
+    <Compile Include="Screens\RSS01035.cs" />
+    <Compile Include="Screens\RSS01070.cs" />
+    <Compile Include="Screens\RSS01050.cs" />
+    <Compile Include="Screens\RSS01040.cs" />
+    <Compile Include="Screens\RSS01501.cs" />
+    <Compile Include="Screens\RSS01500.cs" />
+    <Compile Include="Screens\RSS09003.cs" />
+    <Compile Include="Screens\RSS10016.cs" />
+    <Compile Include="Screens\RSS10023.cs" />
+    <Compile Include="Screens\RSS10028.cs" />
+    <Compile Include="Screens\RSS10022.cs" />
+    <Compile Include="Screens\RSS10029.cs" />
+    <Compile Include="Screens\RSS10032.cs" />
+    <Compile Include="Screens\RSS10037.cs" />
+    <Compile Include="Screens\RSS10043.cs" />
+    <Compile Include="Screens\RSS10044.cs" />
+    <Compile Include="Screens\RSS10046.cs" />
+    <Compile Include="Screens\RSS10048.cs" />
+    <Compile Include="Screens\RSS10036.cs" />
+    <Compile Include="Screens\RSS10050.cs" />
+    <Compile Include="Screens\RSS10097.cs" />
+    <Compile Include="Screens\RSS10041.cs" />
+    <Compile Include="Screens\RSS10039.cs" />
+    <Compile Include="Screens\RSS10035.cs" />
+    <Compile Include="Screens\RSS10034.cs" />
+    <Compile Include="Screens\RSS10042.cs" />
+    <Compile Include="Screens\RSS10010.cs" />
+    <Compile Include="Screens\RSS11009.cs" />
+    <Compile Include="Screens\RSS11008.cs" />
+    <Compile Include="Screens\RSS11004.cs" />
+    <Compile Include="Screens\RSS11006.cs" />
+    <Compile Include="Screens\RSS11002.cs" />
+    <Compile Include="Screens\RSS11010.cs" />
+    <Compile Include="Screens\RSS11001.cs" />
+    <Compile Include="Screens\RSS11000.cs" />
+    <Compile Include="Screens\RSS25010.cs" />
+    <Compile Include="Screens\RSS25020.cs" />
+    <Compile Include="Screens\RSS26001.cs" />
+    <Compile Include="Screens\RSS13003.cs" />
+    <Compile Include="Screens\RSS19001.cs" />
+    <Compile Include="Screens\RSS19000.cs" />
+    <Compile Include="Screens\RSS23001.cs" />
+    <Compile Include="Screens\RSS13000.cs" />
+    <Compile Include="Screens\RSS09002.cs" />
+    <Compile Include="Screens\RSS09001.cs" />
+    <Compile Include="Screens\RSS09000.cs" />
+    <Compile Include="Screens\RSS05500.cs" />
+    <Compile Include="Screens\RSS00101.cs" />
+    <Compile Include="Screens\RSS10060.cs" />
+    <Compile Include="Screens\RSS02010.cs" />
+    <Compile Include="Screens\RSS02020.cs" />
+    <Compile Include="Screens\RSS07500.cs" />
+    <Compile Include="Screens\RSS07001.cs" />
+    <Compile Include="Screens\RSS18000.cs" />
+    <Compile Include="Screens\RSS18001.cs" />
+    <Compile Include="Screens\RSS18010.cs" />
+    <Compile Include="Screens\RSS15000.cs" />
+    <Compile Include="Screens\RUNSTS01.cs" />
+    <Compile Include="Screens\SELCHA01.cs" />
+    <Compile Include="Screens\SELCOY01.cs" />
+    <Compile Include="Screens\SELCOY20.cs" />
+    <Compile Include="Screens\SELPRV01.cs" />
+    <Compile Include="Screens\SELSRV01.cs" />
+    <Compile Include="Screens\SELTRN20.cs" />
+    <Compile Include="Screens\SELVWP00.cs" />
+    <Compile Include="Screens\SELVWP01.cs" />
+    <Compile Include="Screens\SELRSP01.cs" />
+    <Compile Include="Screens\SESTOT01.cs" />
+    <Compile Include="Screens\SESTOT02.cs" />
+    <Compile Include="Screens\SPS00101.cs" />
+    <Compile Include="Screens\SPS00102.cs" />
+    <Compile Include="Screens\TNS00100.cs" />
+    <Compile Include="Screens\TNS00101.cs" />
+    <Compile Include="Screens\TNS00103.cs" />
+    <Compile Include="Screens\TNS01001.cs" />
+    <Compile Include="Screens\TNS01102.cs" />
+    <Compile Include="Screens\TNS05001.cs" />
+    <Compile Include="Screens\TRD00101.cs" />
+    <Compile Include="Screens\TRD00102.cs" />
+    <Compile Include="Screens\TRD00201.cs" />
+    <Compile Include="Screens\TRD00202.cs" />
+    <Compile Include="Screens\TRD00204.cs" />
+    <Compile Include="Screens\TRD00401.cs" />
+    <Compile Include="Screens\TRD00402.cs" />
+    <Compile Include="Screens\TRD00403.cs" />
+    <Compile Include="Screens\TRD00405.cs" />
+    <Compile Include="Screens\TRD00406.cs" />
+    <Compile Include="Screens\TRD004CS.cs" />
+    <Compile Include="Screens\TRD004TF.cs" />
+    <Compile Include="Screens\TRD00501.cs" />
+    <Compile Include="Screens\TRD24000.cs" />
+    <Compile Include="Screens\TRD24001.cs" />
+    <Compile Include="Screens\TRD24002.cs" />
+    <Compile Include="Screens\TRD24003.cs" />
+    <Compile Include="Screens\TRD24004.cs" />
+    <Compile Include="Screens\TRD24006.cs" />
+    <Compile Include="Screens\TRD24007.cs" />
+    <Compile Include="Screens\TRD24009.cs" />
+    <Compile Include="Screens\TRD240RB.cs" />
+    <Compile Include="Screens\TRDMNU01.cs" />
+    <Compile Include="Screens\TRDMNU02.cs" />
+    <Compile Include="Screens\TRDMNU03.cs" />
+    <Compile Include="Screens\TRDRSP00.cs" />
+    <Compile Include="Screens\TRDRSP01.cs" />
+    <Compile Include="Screens\TRDRSP03.cs" />
+    <Compile Include="Screens\TRDRSP11.cs" />
+    <Compile Include="Screens\TRDRSP12.cs" />
+    <Compile Include="Screens\TRDRSP13.cs" />
+    <Compile Include="Screens\TRDSCH01.cs" />
+    <Compile Include="Screens\TRDSCH02.cs" />
+    <Compile Include="Screens\TRDSCHCS.cs" />
+    <Compile Include="Screens\TRS00501.cs" />
+    <Compile Include="Screens\TRS00502.cs" />
+    <Compile Include="Screens\SLRSP001.cs" />
+    <Compile Include="Screens\TRS00503.cs" />
+    <Compile Include="Screens\TRS00504.cs" />
+    <Compile Include="Screens\TRS00507.cs" />
+    <Compile Include="Screens\TRS00508.cs" />
+    <Compile Include="Screens\TRS00511.cs" />
+    <Compile Include="Screens\TRS00512.cs" />
+    <Compile Include="Screens\TRS00513.cs" />
+    <Compile Include="Screens\TRS00701.cs" />
+    <Compile Include="Screens\TRS00702.cs" />
+    <Compile Include="Screens\TRS00703.cs" />
+    <Compile Include="Screens\TRS00704.cs" />
+    <Compile Include="Screens\TRS00707.cs" />
+    <Compile Include="Screens\TRS00708.cs" />
+    <Compile Include="Screens\TRS00711.cs" />
+    <Compile Include="Screens\TRS01010.cs" />
+    <Compile Include="Subtests\AllotmentSubtests.cs" />
+    <Compile Include="Subtests\ISX01004.cs" />
+    <Compile Include="Subtests\ISXIssueSystem.cs" />
+    <Compile Include="Subtests\SSHManager.cs" />
+    <Compile Include="Subtests\TestContext.cs" />
+    <Compile Include="Subtests\VMSTestSteps.cs" />
+    <Compile Include="Subtests\ProxySystemSubtests.cs" />
+    <Compile Include="Subtests\TradingSystemSubtests.cs" />
+    <Compile Include="Subtests\HouseKeepingSubtests.cs" />
+    <Compile Include="Subtests\OnlineSystemSubtests.cs" />
+    <Compile Include="Subtests\EnquirySystemSubtests.cs" />
+    <Compile Include="Subtests\EmployeePlanProcessing.cs" />
+    <Compile Include="Subtests\PaymentSystemSubtests.cs" />
+    <Compile Include="Subtests\ReportOutputParseUtility.cs" />
+    <Compile Include="Subtests\WinSCP.cs" />
+    <Compile Include="Subtests\ReportingSubtests.cs" />
+    <Compile Include="Subtests\SpecFlowNUnitExtension.cs" />
+    <Compile Include="Subtests\GeneralUtility.cs" />
+    <Compile Include="Subtests\LegacyTestCommon.cs" />
+    <Compile Include="Screens\MNS00101.cs" />
+    <Compile Include="Subtests\SpecFlowExtensions.cs" />
+    <Compile Include="Tests\Allotment.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Allotment.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\ESS_Purchase_HD.feature.cs">
+      <DependentUpon>ESS_Purchase_HD.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Tests\CompanyRefresh.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompanyRefresh.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\ESS_Purchase_UD1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ESS_Purchase_UD.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\ISX_Issue_System.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ISX_Issue_System.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\OL_DPM_DividendPlanMaintenance1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OL_DPM_DividendPlanMaintenance.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\OL_HKT_HousekeepingTransactions.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OL_HKT_HousekeepingTransactions.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\OL_MER_MergeHoldersTransaction1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OL_MER_MergeHoldersTransaction.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\OL_PAT_PaymentTransactions1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OL_PAT_PaymentTransactions.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\OL_SDM_StaticDetailMaintenance1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OL_SDM_StaticDetailMaintenance.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\OL_SPT_SpecialTransactions1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OL_SPT_SpecialTransactions.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\OL_STD_StandardTransactions.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OL_STD_StandardTransactions.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\OL_ST_SessionTotals1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OL_ST_SessionTotals.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\OL_UNC_UncertificatedTransactions-Test1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OL_UNC_UncertificatedTransactions-Test.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\EN_E_Bulk Dealing_Trading Actions.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EN_E_Bulk Dealing_Trading Actions.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\EN_E_DisplayActions.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EN_E_DisplayActions.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\EN_E_CompanyOptions.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EN_E_CompanyOptions.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\EN_E_DisbursementOptions.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EN_E_DisbursementOptions.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\EN_E_ESS_EmployeeOptions.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EN_E_ESS_EmployeeOptions.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\EN_E_FilteringActions.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EN_E_FilteringActions.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\EN_E_LocateAction.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EN_E_LocateAction.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\EN_E_NegativeTest.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EN_E_NegativeTest.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\EN_E_PostcodeEnquiry.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EN_E_PostcodeEnquiry.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\EN_E_PrintOption.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EN_E_PrintOption.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\EN_PE_PaymentEnquirySystem.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EN_PE_PaymentEnquirySystem.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\EN_SE_StatisticsEnquiry.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EN_SE_StatisticsEnquiry.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\EP_Employee Plan Processing_OptionsPlan.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EP_Employee Plan Processing_OptionsPlan.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\HK_ESS_Setups.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HK_ESS_Setups.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\OL_NegativeTest.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OL_NegativeTest.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\PaymentsSystem1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaymentsSystem.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\PaymentsSystemEndtoEnd.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaymentsSystemEndtoEnd.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\PX._Online Proxy System.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PX._Online Proxy System.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\SmokeTestFull.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SmokeTestFull.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\SmokeTestShort.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SmokeTestShort.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Tests\TS_TradingSystemReports.feature.cs">
+      <DependentUpon>TS_TradingSystemReports.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Tests\TS_TradingSystem.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TS_TradingSystem.feature</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assemblies\Microsoft.Exchange.WebServices.dll" />
+    <Content Include="Assemblies\Microsoft.Web.Publishing.Tasks.dll" />
+    <Content Include="Assemblies\Microsoft.Web.XmlTransform.dll" />
+    <Content Include="Assemblies\Selenium.WebDriverBackedSelenium.dll" />
+    <Content Include="Assemblies\Spartan.Core.dll" />
+    <Content Include="Assemblies\Spartan.Core.pdb" />
+    <Content Include="Assemblies\Spartan.Core.WinForms.dll" />
+    <Content Include="Assemblies\Spartan.Core.WinForms.pdb" />
+    <Content Include="Assemblies\Spartan.Core.WinForms.XML" />
+    <Content Include="Assemblies\Spartan.Core.xml" />
+    <Content Include="Assemblies\SpecRun.SpecFlowPlugin.dll" />
+    <Content Include="Assemblies\TechTalk.SpecFlow.dll" />
+    <Content Include="Assemblies\TechTalk.SpecRun.dll" />
+    <Content Include="Assemblies\ThoughtWorks.Selenium.Core.dll" />
+    <Content Include="Assemblies\WebDriver.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assemblies\WebDriver.Support.dll" />
+    <Content Include="WinSCP.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="App.Debug.config">
+      <DependentUpon>App.config</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App.Linux.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App.VMS.config" />
+    <None Include="Assemblies\Microsoft.Web.Publishing.targets" />
+    <None Include="Assemblies\Microsoft.WebSite.Publishing.targets" />
+    <None Include="Assemblies\Spartan.Core.dll.config" />
+    <None Include="Reporting\UpdateReportRun.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UpdateReportRun.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Reports.srprofile">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Reporting\ESSReportingGold.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ESSReportingGold1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Reporting\ReportingGold.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ReportingGold.feature.cs</LastGenOutput>
+    </None>
+    <None Include="SpecRunTestProfile.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SpecRunTestProfile_2011_09.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Tests\SmokeTestFull.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SmokeTestFull.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\Allotment.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Allotment.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\ESS_Purchase_UD.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ESS_Purchase_UD1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\ESS_Purchase_HD.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ESS_Purchase_HD.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\ISX_Issue_System.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ISX_Issue_System.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\OL_HKT_HousekeepingTransactions.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>OL_HKT_HousekeepingTransactions.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\OL_SPT_SpecialTransactions.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>OL_SPT_SpecialTransactions1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\OL_PAT_PaymentTransactions.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>OL_PAT_PaymentTransactions1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\OL_ST_SessionTotals.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>OL_ST_SessionTotals1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\OL_STD_StandardTransactions.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>OL_STD_StandardTransactions.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\OL_UNC_UncertificatedTransactions-Test.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>OL_UNC_UncertificatedTransactions-Test1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\PaymentsSystem.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PaymentsSystem1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\EN_E_ESS_EmployeeOptions.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>EN_E_ESS_EmployeeOptions.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\EN_E_FilteringActions.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>EN_E_FilteringActions.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\EN_E_LocateAction.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>EN_E_LocateAction.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\EN_E_NegativeTest.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>EN_E_NegativeTest.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\EN_E_PostcodeEnquiry.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>EN_E_PostcodeEnquiry.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\EN_E_PrintOption.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>EN_E_PrintOption.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\EN_PE_PaymentEnquirySystem.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>EN_PE_PaymentEnquirySystem.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\EN_SE_StatisticsEnquiry.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>EN_SE_StatisticsEnquiry.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\EP_Employee Plan Processing_OptionsPlan.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>EP_Employee Plan Processing_OptionsPlan.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\OL_DPM_DividendPlanMaintenance.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>OL_DPM_DividendPlanMaintenance1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\OL_MER_MergeHoldersTransaction.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>OL_MER_MergeHoldersTransaction1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\OL_NegativeTest.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>OL_NegativeTest.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\OL_SDM_StaticDetailMaintenance.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>OL_SDM_StaticDetailMaintenance1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\PaymentsSystemEndtoEnd.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PaymentsSystemEndtoEnd.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\PX._Online Proxy System.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>PX._Online Proxy System.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\CompanyRefresh.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CompanyRefresh.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\SmokeTestShort.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SmokeTestShort.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\TS_TradingSystemReports.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>TS_TradingSystemReports.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\TS_TradingSystem.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>TS_TradingSystem.feature.cs</LastGenOutput>
+    </None>
+    <None Include="VMS.srprofile">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Parallel.srprofile">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Default.srprofile">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Tests\EN_E_DisplayActions.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>EN_E_DisplayActions.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\EN_E_Bulk Dealing_Trading Actions.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>EN_E_Bulk Dealing_Trading Actions.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\EN_E_CompanyOptions.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>EN_E_CompanyOptions.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\EN_E_DisbursementOptions.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>EN_E_DisbursementOptions.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Tests\HK_ESS_Setups.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>HK_ESS_Setups.feature.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <UsingTask TaskName="TransformXml" AssemblyFile="Assemblies\Microsoft.Web.Publishing.Tasks.dll" />
+  <Target Name="AfterCompile" Condition="Exists('App.$(Configuration).config')">
+    <!--Generate transformed app config in the intermediate directory-->
+    <TransformXml Source="App.config" Destination="$(IntermediateOutputPath)$(TargetFileName).config" Transform="App.$(Configuration).config" />
+    <!--Force build process to use the transformed configuration file from now on.-->
+    <ItemGroup>
+      <AppConfigWithTargetPath Remove="App.config" />
+      <AppConfigWithTargetPath Include="$(IntermediateOutputPath)$(TargetFileName).config">
+        <TargetPath>$(TargetFileName).config</TargetPath>
+      </AppConfigWithTargetPath>
+    </ItemGroup>
+  </Target>
+  <!--Override After Publish to support ClickOnce AfterPublish. Target replaces the untransformed config file copied to the deployment directory with the transformed one.-->
+  <Target Name="AfterPublish">
+    <PropertyGroup>
+      <DeployedConfig>$(_DeploymentApplicationDir)$(TargetName)$(TargetExt).config$(_DeploymentFileMappingExtension)</DeployedConfig>
+    </PropertyGroup>
+    <!--Publish copies the untransformed App.config to deployment directory so overwrite it-->
+    <Copy Condition="Exists('$(DeployedConfig)')" SourceFiles="$(IntermediateOutputPath)$(TargetFileName).config" DestinationFiles="$(DeployedConfig)" />
+  </Target>
+</Project>

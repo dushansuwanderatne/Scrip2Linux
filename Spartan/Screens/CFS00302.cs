@@ -1,0 +1,62 @@
+using System;
+using TechTalk.SpecFlow;
+using Spartan.Core.WinForms.WinFormsObjects;
+using Spartan.Core.WinForms;
+using Spartan.Core;
+
+namespace SCRIPAU.Automation.Screens
+{
+    [Binding]
+    public class CFS00302
+
+    {
+		//Form Object
+		public static WinFormsForm FormName = new WinFormsForm("CFS00302", "FormName");
+		//Fields
+
+
+        public static WinFormsField SystemInfoUnknown = new WinFormsField("SYSTEM-INFO-UNKNOWN", " 9", "9");
+        public static WinFormsField Printer1 = new WinFormsField("PRINTER1", "Printer1");
+        public static WinFormsField Printer2 = new WinFormsField("PRINTER2", "Printer2");
+        public static WinFormsField Printer3 = new WinFormsField("PRINTER3", "Printer3");
+        public static WinFormsField Printer4 = new WinFormsField("PRINTER4", "Printer4");
+        public static WinFormsField Printer5 = new WinFormsField("PRINTER5", "Printer5");
+        public static WinFormsField Model1 = new WinFormsField("MODEL1", "Model1");
+        public static WinFormsField Model2 = new WinFormsField("MODEL2", "Model2");
+        public static WinFormsField Model3 = new WinFormsField("MODEL3", "Model3");
+        public static WinFormsField Model4 = new WinFormsField("MODEL4", "Model4");
+        public static WinFormsField Model5 = new WinFormsField("MODEL5", "Model5");
+        public static WinFormsField Printer6 = new WinFormsField("PRINTER6", "Printer6");
+        public static WinFormsField Printer7 = new WinFormsField("PRINTER7", "Printer7");
+        public static WinFormsField Printer8 = new WinFormsField("PRINTER8", "Printer8");
+        public static WinFormsField Printer9 = new WinFormsField("PRINTER9", "Printer9");
+        public static WinFormsField Printer10 = new WinFormsField("PRINTER10", "Printer10");
+        public static WinFormsField Model6 = new WinFormsField("MODEL6", "Model6");
+        public static WinFormsField Model7 = new WinFormsField("MODEL7", "Model7");
+        public static WinFormsField Model8 = new WinFormsField("MODEL8", "Model8");
+        public static WinFormsField Model9 = new WinFormsField("MODEL9", "Model9");
+        public static WinFormsField Model10 = new WinFormsField("MODEL10", "Model10");
+        public static WinFormsField Printer11 = new WinFormsField("PRINTER11", "Printer11");
+        public static WinFormsField Printer12 = new WinFormsField("PRINTER12", "Printer12");
+        public static WinFormsField Printer13 = new WinFormsField("PRINTER13", "Printer13");
+        public static WinFormsField Printer14 = new WinFormsField("PRINTER14", "Printer14");
+        public static WinFormsField Printer15 = new WinFormsField("PRINTER15", "Printer15");
+        public static WinFormsField Model11 = new WinFormsField("MODEL11", "Model11");
+        public static WinFormsField Model12 = new WinFormsField("MODEL12", "Model12");
+        public static WinFormsField Model13 = new WinFormsField("MODEL13", "Model13");
+        public static WinFormsField Model14 = new WinFormsField("MODEL14", "Model14");
+        public static WinFormsField Model15 = new WinFormsField("MODEL15", "Model15");
+        public static WinFormsField Printer16 = new WinFormsField("PRINTER16", "Printer16");
+        public static WinFormsField Printer17 = new WinFormsField("PRINTER17", "Printer17");
+        public static WinFormsField Printer18 = new WinFormsField("PRINTER18", "Printer18");
+        public static WinFormsField Printer19 = new WinFormsField("PRINTER19", "Printer19");
+        public static WinFormsField Printer20 = new WinFormsField("PRINTER20", "Printer20");
+        public static WinFormsField Model16 = new WinFormsField("MODEL16", "Model16");
+        public static WinFormsField Model17 = new WinFormsField("MODEL17", "Model17");
+        public static WinFormsField Model18 = new WinFormsField("MODEL18", "Model18");
+        public static WinFormsField Model19 = new WinFormsField("MODEL19", "Model19");
+        public static WinFormsField Model20 = new WinFormsField("MODEL20", "Model20");
+        public static WinFormsField NoticePrinter = new WinFormsField("NOTICE-PRINTER", "NoticePrinter");
+        public static WinFormsField WPPrinter = new WinFormsField("WP-PRINTER", "WPPrinter");
+    }
+}

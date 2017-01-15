@@ -1,0 +1,145 @@
+using System;
+using TechTalk.SpecFlow;
+using Spartan.Core.WinForms.WinFormsObjects;
+using Spartan.Core.WinForms;
+using Spartan.Core;
+
+namespace SCRIPAU.Automation.Screens
+{
+    [Binding]
+    public class CFS00502
+
+    {
+		//Form Object
+		public static WinFormsForm FormName = new WinFormsForm("CFS00502", "FormName");
+		//Fields
+
+
+        public static WinFormsField MenuSelectInd01 = new WinFormsField("MENU-SELECT-IND-01", "MenuSelectInd01");
+        public static WinFormsField MenuSelectInd02 = new WinFormsField("MENU-SELECT-IND-02", "MenuSelectInd02");
+        public static WinFormsField MenuSelectInd03 = new WinFormsField("MENU-SELECT-IND-03", "MenuSelectInd03");
+        public static WinFormsField MenuSelectInd04 = new WinFormsField("MENU-SELECT-IND-04", "MenuSelectInd04");
+        public static WinFormsField MenuSelectInd05 = new WinFormsField("MENU-SELECT-IND-05", "MenuSelectInd05");
+        public static WinFormsField MenuSelectInd06 = new WinFormsField("MENU-SELECT-IND-06", "MenuSelectInd06");
+        public static WinFormsField MenuSelectInd07 = new WinFormsField("MENU-SELECT-IND-07", "MenuSelectInd07");
+        public static WinFormsField MenuSelectInd08 = new WinFormsField("MENU-SELECT-IND-08", "MenuSelectInd08");
+        public static WinFormsField MenuSelectInd09 = new WinFormsField("MENU-SELECT-IND-09", "MenuSelectInd09");
+        public static WinFormsField MenuSelectInd10 = new WinFormsField("MENU-SELECT-IND-10", "MenuSelectInd10");
+        public static WinFormsField MenuSelectInd11 = new WinFormsField("MENU-SELECT-IND-11", "MenuSelectInd11");
+        public static WinFormsField MenuSelectInd12 = new WinFormsField("MENU-SELECT-IND-12", "MenuSelectInd12");
+        public static WinFormsField MenuSelectInd13 = new WinFormsField("MENU-SELECT-IND-13", "MenuSelectInd13");
+        public static WinFormsField MenuSelectInd14 = new WinFormsField("MENU-SELECT-IND-14", "MenuSelectInd14");
+        public static WinFormsField MenuSelectInd15 = new WinFormsField("MENU-SELECT-IND-15", "MenuSelectInd15");
+        public static WinFormsField MenuSelectInd16 = new WinFormsField("MENU-SELECT-IND-16", "MenuSelectInd16");
+        public static WinFormsField MenuSelectInd17 = new WinFormsField("MENU-SELECT-IND-17", "MenuSelectInd17");
+        public static WinFormsField MenuSelectInd18 = new WinFormsField("MENU-SELECT-IND-18", "MenuSelectInd18");
+        public static WinFormsField MenuSelectInd19 = new WinFormsField("MENU-SELECT-IND-19", "MenuSelectInd19");
+        public static WinFormsField MenuSelectInd20 = new WinFormsField("MENU-SELECT-IND-20", "MenuSelectInd20");
+        public static WinFormsField MenuSelectInd21 = new WinFormsField("MENU-SELECT-IND-21", "MenuSelectInd21");
+        public static WinFormsField MenuSelectInd22 = new WinFormsField("MENU-SELECT-IND-22", "MenuSelectInd22");
+        public static WinFormsField MenuSelectInd23 = new WinFormsField("MENU-SELECT-IND-23", "MenuSelectInd23");
+        public static WinFormsField MenuSelectInd24 = new WinFormsField("MENU-SELECT-IND-24", "MenuSelectInd24");
+        public static WinFormsField MenuSelectInd25 = new WinFormsField("MENU-SELECT-IND-25", "MenuSelectInd25");
+        public static WinFormsField TranMenuID01 = new WinFormsField("TRAN-MENU-ID-01", "TranMenuID01");
+        public static WinFormsField IncExcTrans01 = new WinFormsField("INC-EXC-TRANS-01", "IncExcTrans01");
+        public static WinFormsField SelTrans01 = new WinFormsField("SEL-TRANS-01", "SelTrans01");
+        public static WinFormsField MoreTransInd01 = new WinFormsField("MORE-TRANS-IND-01", "MoreTransInd01");
+        public static WinFormsField TranMenuID02 = new WinFormsField("TRAN-MENU-ID-02", "TranMenuID02");
+        public static WinFormsField IncExcTrans02 = new WinFormsField("INC-EXC-TRANS-02", "IncExcTrans02");
+        public static WinFormsField SelTrans02 = new WinFormsField("SEL-TRANS-02", "SelTrans02");
+        public static WinFormsField MoreTransInd02 = new WinFormsField("MORE-TRANS-IND-02", "MoreTransInd02");
+        public static WinFormsField TranMenuID03 = new WinFormsField("TRAN-MENU-ID-03", "TranMenuID03");
+        public static WinFormsField IncExcTrans03 = new WinFormsField("INC-EXC-TRANS-03", "IncExcTrans03");
+        public static WinFormsField SelTrans03 = new WinFormsField("SEL-TRANS-03", "SelTrans03");
+        public static WinFormsField MoreTransInd03 = new WinFormsField("MORE-TRANS-IND-03", "MoreTransInd03");
+        public static WinFormsField TranMenuID04 = new WinFormsField("TRAN-MENU-ID-04", "TranMenuID04");
+        public static WinFormsField IncExcTrans04 = new WinFormsField("INC-EXC-TRANS-04", "IncExcTrans04");
+        public static WinFormsField SelTrans04 = new WinFormsField("SEL-TRANS-04", "SelTrans04");
+        public static WinFormsField MoreTransInd04 = new WinFormsField("MORE-TRANS-IND-04", "MoreTransInd04");
+        public static WinFormsField TranMenuID05 = new WinFormsField("TRAN-MENU-ID-05", "TranMenuID05");
+        public static WinFormsField IncExcTrans05 = new WinFormsField("INC-EXC-TRANS-05", "IncExcTrans05");
+        public static WinFormsField SelTrans05 = new WinFormsField("SEL-TRANS-05", "SelTrans05");
+        public static WinFormsField MoreTransInd05 = new WinFormsField("MORE-TRANS-IND-05", "MoreTransInd05");
+        public static WinFormsField TranMenuID06 = new WinFormsField("TRAN-MENU-ID-06", "TranMenuID06");
+        public static WinFormsField IncExcTrans06 = new WinFormsField("INC-EXC-TRANS-06", "IncExcTrans06");
+        public static WinFormsField SelTrans06 = new WinFormsField("SEL-TRANS-06", "SelTrans06");
+        public static WinFormsField MoreTransInd06 = new WinFormsField("MORE-TRANS-IND-06", "MoreTransInd06");
+        public static WinFormsField TranMenuID07 = new WinFormsField("TRAN-MENU-ID-07", "TranMenuID07");
+        public static WinFormsField IncExcTrans07 = new WinFormsField("INC-EXC-TRANS-07", "IncExcTrans07");
+        public static WinFormsField SelTrans07 = new WinFormsField("SEL-TRANS-07", "SelTrans07");
+        public static WinFormsField MoreTransInd07 = new WinFormsField("MORE-TRANS-IND-07", "MoreTransInd07");
+        public static WinFormsField TranMenuID08 = new WinFormsField("TRAN-MENU-ID-08", "TranMenuID08");
+        public static WinFormsField IncExcTrans08 = new WinFormsField("INC-EXC-TRANS-08", "IncExcTrans08");
+        public static WinFormsField SelTrans08 = new WinFormsField("SEL-TRANS-08", "SelTrans08");
+        public static WinFormsField MoreTransInd08 = new WinFormsField("MORE-TRANS-IND-08", "MoreTransInd08");
+        public static WinFormsField TranMenuID09 = new WinFormsField("TRAN-MENU-ID-09", "TranMenuID09");
+        public static WinFormsField IncExcTrans09 = new WinFormsField("INC-EXC-TRANS-09", "IncExcTrans09");
+        public static WinFormsField SelTrans09 = new WinFormsField("SEL-TRANS-09", "SelTrans09");
+        public static WinFormsField MoreTransInd09 = new WinFormsField("MORE-TRANS-IND-09", "MoreTransInd09");
+        public static WinFormsField TranMenuID10 = new WinFormsField("TRAN-MENU-ID-10", "TranMenuID10");
+        public static WinFormsField IncExcTrans10 = new WinFormsField("INC-EXC-TRANS-10", "IncExcTrans10");
+        public static WinFormsField SelTrans010 = new WinFormsField("SEL-TRANS-010", "SelTrans010");
+        public static WinFormsField MoreTransInd10 = new WinFormsField("MORE-TRANS-IND-10", "MoreTransInd10");
+        public static WinFormsField TranMenuID11 = new WinFormsField("TRAN-MENU-ID-11", "TranMenuID11");
+        public static WinFormsField IncExcTrans11 = new WinFormsField("INC-EXC-TRANS-11", "IncExcTrans11");
+        public static WinFormsField SelTrans011 = new WinFormsField("SEL-TRANS-011", "SelTrans011");
+        public static WinFormsField MoreTransInd11 = new WinFormsField("MORE-TRANS-IND-11", "MoreTransInd11");
+        public static WinFormsField TranMenuID12 = new WinFormsField("TRAN-MENU-ID-12", "TranMenuID12");
+        public static WinFormsField IncExcTrans12 = new WinFormsField("INC-EXC-TRANS-12", "IncExcTrans12");
+        public static WinFormsField SelTrans012 = new WinFormsField("SEL-TRANS-012", "SelTrans012");
+        public static WinFormsField MoreTransInd12 = new WinFormsField("MORE-TRANS-IND-12", "MoreTransInd12");
+        public static WinFormsField TranMenuID13 = new WinFormsField("TRAN-MENU-ID-13", "TranMenuID13");
+        public static WinFormsField IncExcTrans13 = new WinFormsField("INC-EXC-TRANS-13", "IncExcTrans13");
+        public static WinFormsField SelTrans013 = new WinFormsField("SEL-TRANS-013", "SelTrans013");
+        public static WinFormsField MoreTransInd13 = new WinFormsField("MORE-TRANS-IND-13", "MoreTransInd13");
+        public static WinFormsField TranMenuID14 = new WinFormsField("TRAN-MENU-ID-14", "TranMenuID14");
+        public static WinFormsField IncExcTrans14 = new WinFormsField("INC-EXC-TRANS-14", "IncExcTrans14");
+        public static WinFormsField SelTrans014 = new WinFormsField("SEL-TRANS-014", "SelTrans014");
+        public static WinFormsField MoreTransInd14 = new WinFormsField("MORE-TRANS-IND-14", "MoreTransInd14");
+        public static WinFormsField TranMenuID15 = new WinFormsField("TRAN-MENU-ID-15", "TranMenuID15");
+        public static WinFormsField IncExcTrans15 = new WinFormsField("INC-EXC-TRANS-15", "IncExcTrans15");
+        public static WinFormsField SelTrans015 = new WinFormsField("SEL-TRANS-015", "SelTrans015");
+        public static WinFormsField MoreTransInd15 = new WinFormsField("MORE-TRANS-IND-15", "MoreTransInd15");
+        public static WinFormsField TranMenuID16 = new WinFormsField("TRAN-MENU-ID-16", "TranMenuID16");
+        public static WinFormsField IncExcTrans16 = new WinFormsField("INC-EXC-TRANS-16", "IncExcTrans16");
+        public static WinFormsField SelTrans016 = new WinFormsField("SEL-TRANS-016", "SelTrans016");
+        public static WinFormsField MoreTransInd16 = new WinFormsField("MORE-TRANS-IND-16", "MoreTransInd16");
+        public static WinFormsField TranMenuID17 = new WinFormsField("TRAN-MENU-ID-17", "TranMenuID17");
+        public static WinFormsField IncExcTrans17 = new WinFormsField("INC-EXC-TRANS-17", "IncExcTrans17");
+        public static WinFormsField SelTrans017 = new WinFormsField("SEL-TRANS-017", "SelTrans017");
+        public static WinFormsField MoreTransInd17 = new WinFormsField("MORE-TRANS-IND-17", "MoreTransInd17");
+        public static WinFormsField TranMenuID18 = new WinFormsField("TRAN-MENU-ID-18", "TranMenuID18");
+        public static WinFormsField IncExcTrans18 = new WinFormsField("INC-EXC-TRANS-18", "IncExcTrans18");
+        public static WinFormsField SelTrans018 = new WinFormsField("SEL-TRANS-018", "SelTrans018");
+        public static WinFormsField MoreTransInd18 = new WinFormsField("MORE-TRANS-IND-18", "MoreTransInd18");
+        public static WinFormsField TranMenuID19 = new WinFormsField("TRAN-MENU-ID-19", "TranMenuID19");
+        public static WinFormsField IncExcTrans19 = new WinFormsField("INC-EXC-TRANS-19", "IncExcTrans19");
+        public static WinFormsField SelTrans019 = new WinFormsField("SEL-TRANS-019", "SelTrans019");
+        public static WinFormsField MoreTransInd19 = new WinFormsField("MORE-TRANS-IND-19", "MoreTransInd19");
+        public static WinFormsField TranMenuID20 = new WinFormsField("TRAN-MENU-ID-20", "TranMenuID20");
+        public static WinFormsField IncExcTrans20 = new WinFormsField("INC-EXC-TRANS-20", "IncExcTrans20");
+        public static WinFormsField SelTrans020 = new WinFormsField("SEL-TRANS-020", "SelTrans020");
+        public static WinFormsField MoreTransInd20 = new WinFormsField("MORE-TRANS-IND-20", "MoreTransInd20");
+        public static WinFormsField TranMenuID21 = new WinFormsField("TRAN-MENU-ID-21", "TranMenuID21");
+        public static WinFormsField IncExcTrans21 = new WinFormsField("INC-EXC-TRANS-21", "IncExcTrans21");
+        public static WinFormsField SelTrans021 = new WinFormsField("SEL-TRANS-021", "SelTrans021");
+        public static WinFormsField MoreTransInd21 = new WinFormsField("MORE-TRANS-IND-21", "MoreTransInd21");
+        public static WinFormsField TranMenuID22 = new WinFormsField("TRAN-MENU-ID-22", "TranMenuID22");
+        public static WinFormsField IncExcTrans22 = new WinFormsField("INC-EXC-TRANS-22", "IncExcTrans22");
+        public static WinFormsField SelTrans022 = new WinFormsField("SEL-TRANS-022", "SelTrans022");
+        public static WinFormsField MoreTransInd22 = new WinFormsField("MORE-TRANS-IND-22", "MoreTransInd22");
+        public static WinFormsField TranMenuID23 = new WinFormsField("TRAN-MENU-ID-23", "TranMenuID23");
+        public static WinFormsField IncExcTrans23 = new WinFormsField("INC-EXC-TRANS-23", "IncExcTrans23");
+        public static WinFormsField SelTrans023 = new WinFormsField("SEL-TRANS-023", "SelTrans023");
+        public static WinFormsField MoreTransInd23 = new WinFormsField("MORE-TRANS-IND-23", "MoreTransInd23");
+        public static WinFormsField TranMenuID24 = new WinFormsField("TRAN-MENU-ID-24", "TranMenuID24");
+        public static WinFormsField IncExcTrans24 = new WinFormsField("INC-EXC-TRANS-24", "IncExcTrans24");
+        public static WinFormsField SelTrans024 = new WinFormsField("SEL-TRANS-024", "SelTrans024");
+        public static WinFormsField MoreTransInd24 = new WinFormsField("MORE-TRANS-IND-24", "MoreTransInd24");
+        public static WinFormsField TranMenuID25 = new WinFormsField("TRAN-MENU-ID-25", "TranMenuID25");
+        public static WinFormsField IncExcTrans25 = new WinFormsField("INC-EXC-TRANS-25", "IncExcTrans25");
+        public static WinFormsField SelTrans025 = new WinFormsField("SEL-TRANS-025", "SelTrans025");
+        public static WinFormsField MoreTransInd25 = new WinFormsField("MORE-TRANS-IND-25", "MoreTransInd25");
+        public static WinFormsField EnqTransmit = new WinFormsField("ENQ-TRANSMIT", "EnqTransmit");
+    }
+}

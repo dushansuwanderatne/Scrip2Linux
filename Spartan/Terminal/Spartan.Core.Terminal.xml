@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Spartan.Core.Terminal</name>
+    </assembly>
+    <members>
+        <member name="T:Spartan.Core.Terminal.TerminalDriver">
+            <summary>
+            Terminal system driver
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.Terminal.TerminalDriver.Connect(System.String,System.String,System.String)">
+            <summary>
+            Connects to Terminal
+            </summary>
+            <param name="username"></param>
+            <param name="password"></param>
+            <param name="session"></param>
+        </member>
+        <member name="M:Spartan.Core.Terminal.TerminalDriver.LogToScreen(System.String)">
+            <summary>
+            Outputs text to Terminal display console
+            </summary>
+            <param name="text"></param>
+        </member>
+        <member name="M:Spartan.Core.Terminal.TerminalDriver.CloseChannel(System.ServiceModel.ICommunicationObject)">
+            <summary>
+            Closes VMS channel
+            </summary>
+            <param name="channel"></param>
+        </member>
+        <member name="M:Spartan.Core.Terminal.TerminalDriver.Disconnect">
+            <summary>
+            Disconnects from VMS
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.Terminal.TerminalDriver.SendShellCommand(System.String)">
+            <summary>
+            Sends a shell command to VMS
+            </summary>
+            <param name="command"></param>
+        </member>
+        <member name="M:Spartan.Core.Terminal.TerminalDriver.RetrieveARLOutput(System.String,System.TimeSpan)">
+            <summary>
+            Returns the output value of an ARL based on the arlOutputParam
+            eg arlOutputParam "The date today is:"
+            </summary>
+            <param name="arlOutputParam"></param>
+            <param name="timeout"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.Terminal.TerminalDriver.ValidateARLOutput(System.String,System.String,System.TimeSpan)">
+            <summary>
+            Validates the value of the specified ARL output parameter against expected value
+            </summary>
+            <param name="arlOutputParam"></param>
+            <param name="expected"></param>
+            <param name="timeout"></param>
+        </member>
+        <member name="M:Spartan.Core.Terminal.TerminalDriver.ValidateShellResults(System.Collections.Generic.List{System.String},System.TimeSpan)">
+            <summary>
+            Validates the shell output from VMS
+            </summary>
+            <param name="passCriteria"></param>
+            <param name="timeout"></param>
+        </member>
+        <member name="M:Spartan.Core.Terminal.TerminalDriver.ValidateShellResults(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.TimeSpan)">
+            <summary>
+            Validates the shell output from VMS
+            </summary>
+            <param name="passCriteria"></param>
+            <param name="failCriteria"></param>
+            <param name="timeout"></param>
+        </member>
+        <member name="M:Spartan.Core.Terminal.TerminalDriver.ValidateShellResults(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.TimeSpan)">
+            <summary>
+            Validates the shell output from Terminal
+            </summary>
+            <param name="passCriteria"></param>
+            <param name="failCriteria"></param>
+            <param name="exclusionCriteria"></param>
+            <param name="timeout"></param>
+        </member>
+        <member name="M:Spartan.Core.Terminal.TerminalDriver.ValidateShellResults(Spartan.Core.Terminal.PassCriteria,Spartan.Core.Terminal.ExclusionCriteria,System.TimeSpan)">
+            <summary>
+            Validates the shell output from Terminal
+            </summary>
+            <param name="passCriteria"></param>
+            <param name="exclusionCriteria"></param>
+            <param name="timeout"></param>
+        </member>
+        <member name="M:Spartan.Core.Terminal.TerminalDriver.ValidateFormResults(Spartan.Core.Terminal.PassCriteria,System.TimeSpan)">
+            <summary>
+            Validates Form output from Terminal (ANSI VT100 Formatting)
+            </summary>
+            <param name="passCriteria"></param>
+            <param name="timeout"></param>
+        </member>
+        <member name="M:Spartan.Core.Terminal.TerminalDriver.FormatForm(System.String[])">
+            <summary>
+            Formats output from Terminal using ANSI VT100 formatting into a formatted List string
+            </summary>
+            <param name="outputFromVMS"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.Terminal.TerminalDriver.DownloadFile(System.String,System.String,System.String)">
+            <summary>
+            Downloads a file from VMS to a local directory
+            </summary>
+            <param name="vmsDIR"></param>
+            <param name="vmsFile"></param>
+            <param name="localPath"></param>
+        </member>
+        <member name="T:Spartan.Core.Terminal.PassCriteria">
+            <summary>
+            PassCriteria extension class
+            </summary>
+        </member>
+        <member name="T:Spartan.Core.Terminal.FailCriteria">
+            <summary>
+            FailCriteria extension class
+            </summary>
+        </member>
+        <member name="T:Spartan.Core.Terminal.ExclusionCriteria">
+            <summary>
+            ExclusionCriteria extension class
+            </summary>
+        </member>
+    </members>
+</doc>

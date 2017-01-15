@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\WebGroup\QA Oceania\Test\SCRIP\LinuxProject\Spartan\bin\Debug\SCRIPAU.Automation.dll" total="0" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2016-04-16" time="16:22:54">
+  <environment nunit-version="2.6.4.14350" clr-version="2.0.50727.5485" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\WebGroup\QA Oceania\Test\SCRIP\LinuxProject\packages\NUnit.Runners.2.6.4\tools" machine-name="MELYN1822" user="yannyp" user-domain="OCEANIA" />
+  <culture-info current-culture="en-AU" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="C:\WebGroup\QA Oceania\Test\SCRIP\LinuxProject\Spartan\bin\Debug\SCRIPAU.Automation.dll" executed="True" result="Inconclusive" success="False" time="0.012" asserts="0" />
+</test-results>

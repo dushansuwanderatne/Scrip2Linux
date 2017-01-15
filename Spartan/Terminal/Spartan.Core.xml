@@ -1,0 +1,680 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Spartan.Core</name>
+    </assembly>
+    <members>
+        <member name="T:DiffMatchPatch.Operation">
+            -
+            The data structure representing a diff is a List of Diff objects:
+            {Diff(Operation.DELETE, "Hello"), Diff(Operation.INSERT, "Goodbye"),
+             Diff(Operation.EQUAL, " world.")}
+            which means: delete "Hello", add "Goodbye" and keep " world."
+        </member>
+        <member name="T:DiffMatchPatch.Diff">
+            Class representing one diff operation.
+        </member>
+        <member name="M:DiffMatchPatch.Diff.#ctor(DiffMatchPatch.Operation,System.String)">
+            Constructor.  Initializes the diff with the provided values.
+            @param operation One of INSERT, DELETE or EQUAL.
+            @param text The text being applied.
+        </member>
+        <member name="M:DiffMatchPatch.Diff.ToString">
+            Display a human-readable version of this Diff.
+            @return text version.
+        </member>
+        <member name="M:DiffMatchPatch.Diff.Equals(System.Object)">
+            Is this Diff equivalent to another Diff?
+            @param d Another Diff to compare against.
+            @return true or false.
+        </member>
+        <member name="M:DiffMatchPatch.Diff.CompareTextFiles(System.String,System.String,System.Collections.Generic.List{DiffMatchPatch.FileExclusionArea})">
+            <summary>
+            Compares 2 text files, ignoring any exclusions specified
+            </summary>
+            <param name="file1"></param>
+            <param name="file2"></param>
+            <param name="exclusions"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DiffMatchPatch.Patch">
+            Class representing one patch operation.
+        </member>
+        <member name="M:DiffMatchPatch.Patch.ToString">
+            Emmulate GNU diff's format.
+            Header: @@ -382,8 +481,9 @@
+            Indicies are printed as 1-based, not 0-based.
+            @return The GNU diff string.
+        </member>
+        <member name="T:DiffMatchPatch.diff_match_patch">
+            Class containing the diff, match and patch methods.
+            Also Contains the behaviour settings.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_main(System.String,System.String)">
+            Find the differences between two texts.
+            Run a faster, slightly less optimal diff.
+            This method allows the 'checklines' of diff_main() to be optional.
+            Most of the time checklines is wanted, so default to true.
+            @param text1 Old string to be diffed.
+            @param text2 New string to be diffed.
+            @return List of Diff objects.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_main(System.String,System.String,System.Boolean)">
+            Find the differences between two texts.
+            @param text1 Old string to be diffed.
+            @param text2 New string to be diffed.
+            @param checklines Speedup flag.  If false, then don't run a
+                line-level diff first to identify the changed areas.
+                If true, then run a faster slightly less optimal diff.
+            @return List of Diff objects.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_main(System.String,System.String,System.Boolean,System.DateTime)">
+            Find the differences between two texts.  Simplifies the problem by
+            stripping any common prefix or suffix off the texts before diffing.
+            @param text1 Old string to be diffed.
+            @param text2 New string to be diffed.
+            @param checklines Speedup flag.  If false, then don't run a
+                line-level diff first to identify the changed areas.
+                If true, then run a faster slightly less optimal diff.
+            @param deadline Time when the diff should be complete by.  Used
+                internally for recursive calls.  Users should set DiffTimeout
+                instead.
+            @return List of Diff objects.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_compute(System.String,System.String,System.Boolean,System.DateTime)">
+            Find the differences between two texts.  Assumes that the texts do not
+            have any common prefix or suffix.
+            @param text1 Old string to be diffed.
+            @param text2 New string to be diffed.
+            @param checklines Speedup flag.  If false, then don't run a
+                line-level diff first to identify the changed areas.
+                If true, then run a faster slightly less optimal diff.
+            @param deadline Time when the diff should be complete by.
+            @return List of Diff objects.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_lineMode(System.String,System.String,System.DateTime)">
+            Do a quick line-level diff on both strings, then rediff the parts for
+            greater accuracy.
+            This speedup can produce non-minimal diffs.
+            @param text1 Old string to be diffed.
+            @param text2 New string to be diffed.
+            @param deadline Time when the diff should be complete by.
+            @return List of Diff objects.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_bisect(System.String,System.String,System.DateTime)">
+            Find the 'middle snake' of a diff, split the problem in two
+            and return the recursively constructed diff.
+            See Myers 1986 paper: An O(ND) Difference Algorithm and Its Variations.
+            @param text1 Old string to be diffed.
+            @param text2 New string to be diffed.
+            @param deadline Time at which to bail if not yet complete.
+            @return List of Diff objects.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_bisectSplit(System.String,System.String,System.Int32,System.Int32,System.DateTime)">
+            Given the location of the 'middle snake', split the diff in two parts
+            and recurse.
+            @param text1 Old string to be diffed.
+            @param text2 New string to be diffed.
+            @param x Index of split point in text1.
+            @param y Index of split point in text2.
+            @param deadline Time at which to bail if not yet complete.
+            @return LinkedList of Diff objects.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_linesToChars(System.String,System.String)">
+            Split two texts into a list of strings.  Reduce the texts to a string of
+            hashes where each Unicode character represents one line.
+            @param text1 First string.
+            @param text2 Second string.
+            @return Three element Object array, containing the encoded text1, the
+                encoded text2 and the List of unique strings.  The zeroth element
+                of the List of unique strings is intentionally blank.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_linesToCharsMunge(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.Int32})">
+            Split a text into a list of strings.  Reduce the texts to a string of
+            hashes where each Unicode character represents one line.
+            @param text String to encode.
+            @param lineArray List of unique strings.
+            @param lineHash Map of strings to indices.
+            @return Encoded string.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_charsToLines(System.Collections.Generic.ICollection{DiffMatchPatch.Diff},System.Collections.Generic.List{System.String})">
+            Rehydrate the text in a diff from a string of line hashes to real lines
+            of text.
+            @param diffs List of Diff objects.
+            @param lineArray List of unique strings.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_commonPrefix(System.String,System.String)">
+            Determine the common prefix of two strings.
+            @param text1 First string.
+            @param text2 Second string.
+            @return The number of characters common to the start of each string.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_commonSuffix(System.String,System.String)">
+            Determine the common suffix of two strings.
+            @param text1 First string.
+            @param text2 Second string.
+            @return The number of characters common to the end of each string.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_commonOverlap(System.String,System.String)">
+            Determine if the suffix of one string is the prefix of another.
+            @param text1 First string.
+            @param text2 Second string.
+            @return The number of characters common to the end of the first
+                string and the start of the second string.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_halfMatch(System.String,System.String)">
+            Do the two texts share a Substring which is at least half the length of
+            the longer text?
+            This speedup can produce non-minimal diffs.
+            @param text1 First string.
+            @param text2 Second string.
+            @return Five element String array, containing the prefix of text1, the
+                suffix of text1, the prefix of text2, the suffix of text2 and the
+                common middle.  Or null if there was no match.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_halfMatchI(System.String,System.String,System.Int32)">
+            Does a Substring of shorttext exist within longtext such that the
+            Substring is at least half the length of longtext?
+            @param longtext Longer string.
+            @param shorttext Shorter string.
+            @param i Start index of quarter length Substring within longtext.
+            @return Five element string array, containing the prefix of longtext, the
+                suffix of longtext, the prefix of shorttext, the suffix of shorttext
+                and the common middle.  Or null if there was no match.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_cleanupSemantic(System.Collections.Generic.List{DiffMatchPatch.Diff})">
+            Reduce the number of edits by eliminating semantically trivial
+            equalities.
+            @param diffs List of Diff objects.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_cleanupSemanticLossless(System.Collections.Generic.List{DiffMatchPatch.Diff})">
+            Look for single edits surrounded on both sides by equalities
+            which can be shifted sideways to align the edit to a word boundary.
+            e.g: The c<ins>at c</ins>ame. -> The <ins>cat </ins>came.
+            @param diffs List of Diff objects.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_cleanupSemanticScore(System.String,System.String)">
+            Given two strings, comAdde a score representing whether the internal
+            boundary falls on logical boundaries.
+            Scores range from 6 (best) to 0 (worst).
+            @param one First string.
+            @param two Second string.
+            @return The score.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_cleanupEfficiency(System.Collections.Generic.List{DiffMatchPatch.Diff})">
+            Reduce the number of edits by eliminating operationally trivial
+            equalities.
+            @param diffs List of Diff objects.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_cleanupMerge(System.Collections.Generic.List{DiffMatchPatch.Diff})">
+            Reorder and merge like edit sections.  Merge equalities.
+            Any edit section can move as long as it doesn't cross an equality.
+            @param diffs List of Diff objects.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_xIndex(System.Collections.Generic.List{DiffMatchPatch.Diff},System.Int32)">
+            loc is a location in text1, comAdde and return the equivalent location in
+            text2.
+            e.g. "The cat" vs "The big cat", 1->1, 5->8
+            @param diffs List of Diff objects.
+            @param loc Location within text1.
+            @return Location within text2.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_prettyHtml(System.Collections.Generic.List{DiffMatchPatch.Diff})">
+            Convert a Diff list into a pretty HTML report.
+            @param diffs List of Diff objects.
+            @return HTML representation.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_text1(System.Collections.Generic.List{DiffMatchPatch.Diff})">
+            Compute and return the source text (all equalities and deletions).
+            @param diffs List of Diff objects.
+            @return Source text.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_text2(System.Collections.Generic.List{DiffMatchPatch.Diff})">
+            Compute and return the destination text (all equalities and insertions).
+            @param diffs List of Diff objects.
+            @return Destination text.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_levenshtein(System.Collections.Generic.List{DiffMatchPatch.Diff})">
+            Compute the Levenshtein distance; the number of inserted, deleted or
+            substituted characters.
+            @param diffs List of Diff objects.
+            @return Number of changes.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_toDelta(System.Collections.Generic.List{DiffMatchPatch.Diff})">
+            Crush the diff into an encoded string which describes the operations
+            required to transform text1 into text2.
+            E.g. =3\t-2\t+ing  -> Keep 3 chars, delete 2 chars, insert 'ing'.
+            Operations are tab-separated.  Inserted text is escaped using %xx
+            notation.
+            @param diffs Array of Diff objects.
+            @return Delta text.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.diff_fromDelta(System.String,System.String)">
+            Given the original text1, and an encoded string which describes the
+            operations required to transform text1 into text2, comAdde the full diff.
+            @param text1 Source string for the diff.
+            @param delta Delta text.
+            @return Array of Diff objects or null if invalid.
+            @throws ArgumentException If invalid input.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.match_main(System.String,System.String,System.Int32)">
+            Locate the best instance of 'pattern' in 'text' near 'loc'.
+            Returns -1 if no match found.
+            @param text The text to search.
+            @param pattern The pattern to search for.
+            @param loc The location to search around.
+            @return Best match index or -1.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.match_bitap(System.String,System.String,System.Int32)">
+            Locate the best instance of 'pattern' in 'text' near 'loc' using the
+            Bitap algorithm.  Returns -1 if no match found.
+            @param text The text to search.
+            @param pattern The pattern to search for.
+            @param loc The location to search around.
+            @return Best match index or -1.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.match_bitapScore(System.Int32,System.Int32,System.Int32,System.String)">
+            Compute and return the score for a match with e errors and x location.
+            @param e Number of errors in match.
+            @param x Location of match.
+            @param loc Expected location of match.
+            @param pattern Pattern being sought.
+            @return Overall score for match (0.0 = good, 1.0 = bad).
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.match_alphabet(System.String)">
+            Initialise the alphabet for the Bitap algorithm.
+            @param pattern The text to encode.
+            @return Hash of character locations.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.patch_addContext(DiffMatchPatch.Patch,System.String)">
+            Increase the context until it is unique,
+            but don't let the pattern expand beyond Match_MaxBits.
+            @param patch The patch to grow.
+            @param text Source text.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.patch_make(System.String,System.String)">
+            Compute a list of patches to turn text1 into text2.
+            A set of diffs will be computed.
+            @param text1 Old text.
+            @param text2 New text.
+            @return List of Patch objects.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.patch_make(System.Collections.Generic.List{DiffMatchPatch.Diff})">
+            Compute a list of patches to turn text1 into text2.
+            text1 will be derived from the provided diffs.
+            @param diffs Array of Diff objects for text1 to text2.
+            @return List of Patch objects.
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:DiffMatchPatch.diff_match_patch.patch_make(System.String,System.String,System.Collections.Generic.List{DiffMatchPatch.Diff})" -->
+        <member name="M:DiffMatchPatch.diff_match_patch.patch_make(System.String,System.Collections.Generic.List{DiffMatchPatch.Diff})">
+            Compute a list of patches to turn text1 into text2.
+            text2 is not provided, diffs are the delta between text1 and text2.
+            @param text1 Old text.
+            @param diffs Array of Diff objects for text1 to text2.
+            @return List of Patch objects.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.patch_deepCopy(System.Collections.Generic.List{DiffMatchPatch.Patch})">
+            Given an array of patches, return another array that is identical.
+            @param patches Array of Patch objects.
+            @return Array of Patch objects.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.patch_apply(System.Collections.Generic.List{DiffMatchPatch.Patch},System.String)">
+            Merge a set of patches onto the text.  Return a patched text, as well
+            as an array of true/false values indicating which patches were applied.
+            @param patches Array of Patch objects
+            @param text Old text.
+            @return Two element Object array, containing the new text and an array of
+                 bool values.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.patch_addPadding(System.Collections.Generic.List{DiffMatchPatch.Patch})">
+            Add some padding on text start and end so that edges can match something.
+            Intended to be called only from within patch_apply.
+            @param patches Array of Patch objects.
+            @return The padding string added to each side.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.patch_splitMax(System.Collections.Generic.List{DiffMatchPatch.Patch})">
+            Look through the patches and break up any which are longer than the
+            maximum limit of the match algorithm.
+            Intended to be called only from within patch_apply.
+            @param patches List of Patch objects.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.patch_toText(System.Collections.Generic.List{DiffMatchPatch.Patch})">
+            Take a list of patches and return a textual representation.
+            @param patches List of Patch objects.
+            @return Text representation of patches.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.patch_fromText(System.String)">
+            Parse a textual representation of patches and return a List of Patch
+            objects.
+            @param textline Text representation of patches.
+            @return List of Patch objects.
+            @throws ArgumentException If invalid input.
+        </member>
+        <member name="M:DiffMatchPatch.diff_match_patch.unescapeForEncodeUriCompatability(System.String)">
+             Unescape selected chars for compatability with JavaScript's encodeURI.
+             In speed critical applications this could be dropped since the
+             receiving application will certainly decode these fine.
+             Note that this function is case-sensitive.  Thus "%3F" would not be
+             unescaped.  But this is ok because it is only called with the output of
+             HttpUtility.UrlEncode which returns lowercase hex.
+            
+             Example: "%3f" -> "?", "%24" -> "$", etc.
+            
+             @param str The string to escape.
+             @return The escaped string.
+        </member>
+        <member name="T:Spartan.Core.TestDriver">
+            <summary>
+            Class for handling the flow of a test
+            </summary>
+        </member>
+        <member name="F:Spartan.Core.TestDriver.ResultsLog">
+            <summary>
+            Results Log
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.TestDriver.TestInit(System.String)">
+            <summary>
+            Initializes a test with Data from a database
+            </summary>
+            <param name="testDataId"></param>
+        </member>
+        <member name="M:Spartan.Core.TestDriver.TestInit">
+            <summary>
+            Initializes a test without Data from a database
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.TestDriver.FeatureInit(System.String)">
+            <summary>
+            Initializes a feature with data from the database
+            </summary>
+            <param name="featureDataId"></param>
+        </member>
+        <member name="M:Spartan.Core.TestDriver.FeatureInit">
+            <summary>
+            Initializes a feature without data from the database
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.TestDriver.InitDataSetup(System.Boolean)">
+            <summary>
+            Queries the database for test data. Stores it in XML
+            </summary>
+            <param name="dataResultExpected"></param>
+            <returns>XML Data</returns>
+        </member>
+        <member name="M:Spartan.Core.TestDriver.RetrieveLoginFromPool(System.String)">
+            <summary>
+            Grabs a free SCRIP login from the login pool
+            </summary>
+            <param name="project"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.TestDriver.LockLoginPool(System.String)">
+            <summary>
+            Lock retrieved user from login pool so that no one else can use it
+            </summary>
+            <param name="username"></param>
+        </member>
+        <member name="M:Spartan.Core.TestDriver.UnlockLoginPool(System.String)">
+            <summary>
+            Unlocks retrieved user from login pool so it becomes usable again
+            </summary>
+            <param name="username"></param>
+        </member>
+        <member name="M:Spartan.Core.TestDriver.CatchNTrash(System.Exception)">
+            <summary>
+            Captures and deals with unexpected exceptions
+            </summary>
+            <param name="ex"></param>
+        </member>
+        <member name="T:Spartan.Core.LoginPool">
+            <summary>
+            Container class for LoginPool data
+            </summary>
+        </member>
+        <member name="T:Spartan.Core.Results">
+            <summary>
+            Results logging class
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.Results.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.Results.LogFinish">
+            <summary>
+            Mark an end of a test and save results into the database
+            </summary>
+            <param name="TestName"></param>
+            <param name="Project"></param>
+            <param name="StartTime"></param>
+            <param name="EndTime"></param>
+        </member>
+        <member name="T:Spartan.Core.Utility">
+            <summary>
+            Utility class for general utility methods
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.Utility.ConvertToTimeSpan(System.String)">
+            <summary>
+            A method that converts a string into a TimeSpan
+            </summary>
+            <param name="timeSpanAsString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.Utility.GetAttributeValue(System.String)">
+            <summary>
+            Depracated. Do not use. This functionaliy is now handled in the "AfterStep" binding.
+            </summary>
+            <param name="attribute"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.Utility.CompareTextFiles(System.String,System.String)">
+            <summary>
+            Compares 2 text files and returns true if they are the same
+            </summary>
+            <param name="file1"></param>
+            <param name="file2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.Utility.CompareTextFiles(System.String,System.String,System.Collections.Generic.List{DiffMatchPatch.FileExclusionArea})">
+            <summary>
+            Compares 2 text files, ignoring any exclusions specified
+            </summary>
+            <param name="file1"></param>
+            <param name="file2"></param>
+            <param name="exclusions"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Spartan.Core.Utility.DataGeneration">
+            <summary>
+            A class used for Generating Data
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.Utility.DataGeneration.GenerateEmail">
+            <summary>
+            Generates a random email address
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.Utility.DataGeneration.GenerateEmail(System.String)">
+            <summary>
+            Takes a seed argument and generates an email address based on date and time
+            </summary>
+            <param name="seed"></param>
+            <returns>Generated Email Adress</returns>
+        </member>
+        <member name="M:Spartan.Core.Utility.DataGeneration.GenerateDate(System.Int32)">
+            <summary>
+            Gets todays date and increments it by the number of days specified
+            </summary>
+            <param name="numberOfDaysFromToday"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.Utility.DataChecker.CheckData(System.String)">
+            <summary>
+            Deprecated. Use GetData from the Data Type instead. 
+            String Example: myString.GetData();
+            Table Example: myTable.GetData("Value",1);
+            </summary>
+            <param name="data"></param>
+            <returns>Returns data contained in database if its a valid string, else returns the input</returns>
+        </member>
+        <member name="T:Spartan.Core.SpecFlowExtensions">
+            <summary>
+            Extensions to SpecFlow
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.SpecFlowExtensions.GetData(TechTalk.SpecFlow.Table,System.String)">
+            <summary>
+            Returns data found from data marker in table record
+            </summary>
+            <param name="data"></param>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.SpecFlowExtensions.GetData(TechTalk.SpecFlow.Table,System.Int32)">
+            <summary>
+            Returns data found from data marker in table record
+            </summary>
+            <param name="data"></param>
+            <param name="rowIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.SpecFlowExtensions.GetData(TechTalk.SpecFlow.Table,System.Int32,System.Int32)">
+            <summary>
+            Returns data found from data marker in table record
+            </summary>
+            <param name="data"></param>
+            <param name="rowIndex"></param>
+            <param name="columnIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.SpecFlowExtensions.GetData(TechTalk.SpecFlow.Table,System.String,System.Int32)">
+            <summary>
+            Returns data found from data marker in table record
+            </summary>
+            <param name="data"></param>
+            <param name="columnName"></param>
+            <param name="rowIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.SpecFlowExtensions.GetData(TechTalk.SpecFlow.Table,System.String,System.String,System.String)">
+            <summary>
+            Returns data found from data marker in table record
+            </summary>
+            <param name="data"></param>
+            <param name="primaryColumn"></param>
+            <param name="primaryColumnValue"></param>
+            <param name="queryColumn"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Spartan.Core.StringExtensions">
+            <summary>
+            Extensions for the string data type
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.StringExtensions.Contains(System.String,System.String,System.StringComparison)">
+            <summary>
+            Returns a boolean on whether contains a value
+            </summary>
+            <param name="source"></param>
+            <param name="toCheck"></param>
+            <param name="comp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.StringExtensions.GetData(System.String)">
+            <summary>
+            Parses string and looks for data getting markers.
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.StringExtensions.GetXML(System.String)">
+            <summary>
+            Returns the inner XML found in the destination node
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Spartan.Core.StopClock">
+            <summary>
+            A stop which can be used to mark differences between time
+            and provide timeout functionality
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.StopClock.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.StopClock.CheckTime(System.TimeSpan)">
+            <summary>
+            Checks the time elapsed. returns true if time elapsed is still within time limit.
+            </summary>
+            <param name="timeLimit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spartan.Core.StopClock.Start">
+            <summary>
+            Start the StopClock
+            </summary>
+        </member>
+        <member name="T:Spartan.Core.VariableContainer">
+            <summary>
+            Class for holding data between steps
+            </summary>
+        </member>
+        <member name="T:Spartan.Core.VariableContainer.Scenario">
+            <summary>
+            Class for holding data between steps
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.VariableContainer.Scenario.SaveVariable(System.String,System.Object)">
+            <summary>
+            Saves a variable into the container using the variable name as a key
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.VariableContainer.Scenario.DeleteVariable(System.String)">
+            <summary>
+            Removes the specified record from the variable container
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.VariableContainer.Scenario.ClearDictionary">
+            <summary>
+            Erases all values from the variable container
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.VariableContainer.Scenario.GetVariable(System.String)">
+            <summary>
+            Returns a value of Object type based on the provided argument
+            </summary>
+        </member>
+        <member name="T:Spartan.Core.VariableContainer.Feature">
+            <summary>
+            Class for holding data between scenarios
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.VariableContainer.Feature.SaveVariable(System.String,System.Object)">
+            <summary>
+            Saves a variable into the container using the variable name as a key
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.VariableContainer.Feature.DeleteVariable(System.String)">
+            <summary>
+            Removes the specified record from the variable container
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.VariableContainer.Feature.ClearDictionary">
+            <summary>
+            Erases all values from the variable container
+            </summary>
+        </member>
+        <member name="M:Spartan.Core.VariableContainer.Feature.GetVariable(System.String)">
+            <summary>
+            Returns a value of Object type based on the provided argument
+            </summary>
+        </member>
+    </members>
+</doc>
