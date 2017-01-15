@@ -91,11 +91,6 @@
       <HintPath>..\packages\SpecFlow.2.1.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TechTalk.SpecRun, Version=1.5.2.0, Culture=neutral, PublicKeyToken=d0fc5cc18b3b389b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\SpecRun.SpecFlow.1.5.2\lib\net45\TechTalk.SpecRun.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="VirtualPath, Version=0.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\VirtualPath.0.3.0\lib\net45\VirtualPath.dll</HintPath>
       <Private>True</Private>
@@ -1082,10 +1077,6 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UpdateReportRun.feature.cs</LastGenOutput>
     </None>
-    <None Include="Reports.srprofile">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Reporting\ESSReportingGold.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ESSReportingGold1.feature.cs</LastGenOutput>
@@ -1093,12 +1084,6 @@
     <None Include="Reporting\ReportingGold.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ReportingGold.feature.cs</LastGenOutput>
-    </None>
-    <None Include="SpecRunTestProfile.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SpecRunTestProfile_2011_09.xsd">
-      <SubType>Designer</SubType>
     </None>
     <None Include="Tests\SmokeTestFull.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
@@ -1223,16 +1208,6 @@
     <None Include="Tests\TS_TradingSystem.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>TS_TradingSystem.feature.cs</LastGenOutput>
-    </None>
-    <None Include="VMS.srprofile">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Parallel.srprofile">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Default.srprofile">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
     <None Include="Tests\EN_E_DisplayActions.feature">
